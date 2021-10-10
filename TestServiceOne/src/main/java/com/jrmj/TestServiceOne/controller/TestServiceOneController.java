@@ -1,5 +1,6 @@
-package com.jrmj.TestServiceTwo.controller;
+package com.jrmj.TestServiceOne.controller;
 
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
