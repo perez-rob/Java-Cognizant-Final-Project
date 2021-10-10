@@ -11,22 +11,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class JrmjEdgeController {
 
-//    @Autowired
-//    private final TestOneClient testOneClient;
+    @Autowired
+    private final TestOneClient testOneClient;
 
     @Autowired
     private final TestServiceTwoClient testServiceTwoClient;
 
-    JrmjEdgeController(TestServiceTwoClient testServiceTwoClient) {
+    JrmjEdgeController(TestOneClient testOneClient, TestServiceTwoClient testServiceTwoClient) {
+        this.testOneClient = testOneClient;
         this.testServiceTwoClient = testServiceTwoClient;
     }
 
-//    @GetMapping("/one")
-//    public String testOne() {
-//        return testOneClient.useTestServiceOne();
-//    }
+    @GetMapping("/one")
+    public String testOne() {
+        return testOneClient.useTestServiceOne();
+    }
 
-    @GetMapping("/testtwo")
+    @GetMapping("/two")
     public String testTwo() {
         return testServiceTwoClient.getTestServiceTwo();
     }
