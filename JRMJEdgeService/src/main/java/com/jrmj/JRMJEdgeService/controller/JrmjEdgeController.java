@@ -4,9 +4,9 @@ import com.jrmj.JRMJEdgeService.util.feign.CustomerServiceClient;
 import com.jrmj.JRMJEdgeService.util.feign.ProductServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RefreshScope
@@ -25,18 +25,28 @@ public class JrmjEdgeController {
         this.productClient = productClient;
     }
 
-    @GetMapping("/customer")
-    public String testCustomer() {
-        return customerClient.testCustomerService();
+    @PostMapping("/customers")
+    public Object addCustomer(@RequestBody Object customer) {
+        return customerClient.addCustomer(customer);
     }
 
-    @GetMapping("/product")
-    public String testProduct() {
-        return productClient.testProductService();
+    @GetMapping("/customers")
+    public List testCustomer() {
+        return customerClient.getAllCustomers();
+    }
+
+    @PostMapping("/products")
+    public Object addProduct(@RequestBody Object product) {
+        return productClient.addProduct(product);
+    }
+
+    @GetMapping("/products")
+    public List getProduct() {
+        return productClient.getAllProducts();
     }
 
     @GetMapping("/trial")
     public String getTrial() {
-        return "Trail";
+        return "Trial";
     }
 }

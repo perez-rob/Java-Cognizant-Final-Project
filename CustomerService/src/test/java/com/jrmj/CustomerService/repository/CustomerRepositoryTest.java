@@ -16,16 +16,11 @@ import static org.junit.Assert.*;
 public class CustomerRepositoryTest {
 
     @Autowired
-    CustomerRepository customerRepo;
+    private CustomerRepository customerRepo;
 
     @Before
     public void setUp() throws Exception {
 
     }
 
-    @Test
-    @Transactional
-    public void shouldAddCustomer() {
-
-    }
 }
