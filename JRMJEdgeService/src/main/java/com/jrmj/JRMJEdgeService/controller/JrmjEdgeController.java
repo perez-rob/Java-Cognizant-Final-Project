@@ -1,7 +1,7 @@
 package com.jrmj.JRMJEdgeService.controller;
 
-import com.jrmj.JRMJEdgeService.util.feign.TestOneClient;
-import com.jrmj.JRMJEdgeService.util.feign.TestServiceTwoClient;
+import com.jrmj.JRMJEdgeService.util.feign.CustomerServiceClient;
+import com.jrmj.JRMJEdgeService.util.feign.ProductServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,24 +12,24 @@ import org.springframework.web.bind.annotation.RestController;
 public class JrmjEdgeController {
 
     @Autowired
-    private final TestOneClient testOneClient;
+    private final CustomerServiceClient customerClient;
 
     @Autowired
-    private final TestServiceTwoClient testServiceTwoClient;
+    private final ProductServiceClient productClient;
 
-    JrmjEdgeController(TestOneClient testOneClient, TestServiceTwoClient testServiceTwoClient) {
-        this.testOneClient = testOneClient;
-        this.testServiceTwoClient = testServiceTwoClient;
+    JrmjEdgeController(CustomerServiceClient customerClient, ProductServiceClient productClient) {
+        this.customerClient = customerClient;
+        this.productClient = productClient;
     }
 
-    @GetMapping("/one")
-    public String testOne() {
-        return testOneClient.useTestServiceOne();
+    @GetMapping("/customer")
+    public String testCustomer() {
+        return customerClient.testCustomerService();
     }
 
-    @GetMapping("/two")
-    public String testTwo() {
-        return testServiceTwoClient.getTestServiceTwo();
+    @GetMapping("/product")
+    public String testProduct() {
+        return productClient.testProductService();
     }
 
     @GetMapping("/trial")
