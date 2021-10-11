@@ -4,11 +4,14 @@ import com.jrmj.JRMJEdgeService.util.feign.CustomerServiceClient;
 import com.jrmj.JRMJEdgeService.util.feign.ProductServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RefreshScope
+// check this if needed for other controllers
+@CrossOrigin
 public class JrmjEdgeController {
 
     @Autowired
