@@ -31,7 +31,7 @@ public class JrmjEdgeController {
     }
 
     @GetMapping("/customers")
-    public List testCustomer() {
+    public List getCustomer() {
         return customerClient.getAllCustomers();
     }
 
