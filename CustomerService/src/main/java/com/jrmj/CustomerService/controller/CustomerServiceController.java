@@ -6,6 +6,7 @@ import com.jrmj.CustomerService.repository.AddressRepository;
 import com.jrmj.CustomerService.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -25,6 +26,9 @@ public class CustomerServiceController {
     @PostMapping("/customers")
     @ResponseStatus(HttpStatus.CREATED)
     public Customer addCustomer(@RequestBody Customer customer) {
+        customer.setPassword(BCrypt.hashpw(customer.getPassword(), BCrypt.gensalt()));
+        System.out.println("-----------PASSWORD----------------");
+        System.out.println(customer.getPassword());
         return customerRepo.save(customer);
     }
 

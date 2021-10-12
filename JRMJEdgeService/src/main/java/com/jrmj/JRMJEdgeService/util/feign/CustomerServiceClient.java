@@ -1,9 +1,9 @@
 package com.jrmj.JRMJEdgeService.util.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @FeignClient(name = "customer-service")
@@ -15,5 +15,14 @@ public interface CustomerServiceClient {
 
     @GetMapping("/customers")
     public List getAllCustomers();
+
+    @GetMapping("/customers/{id}")
+    public Object getCustomerById(@PathVariable Integer id);
+
+    @PutMapping("/customers/{id}")
+    public Object updateCustomer(@PathVariable Integer id, Object customer);
+
+    @DeleteMapping("/customers/{id}")
+    public HashMap<String, String> deleteCustomer(@PathVariable Integer id);
 
 }
