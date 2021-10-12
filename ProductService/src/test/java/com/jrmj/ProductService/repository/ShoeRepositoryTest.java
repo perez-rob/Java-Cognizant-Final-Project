@@ -93,36 +93,6 @@ public class ShoeRepositoryTest {
 
     }
 
-    @Test
-    @Transactional
-    public void shouldGetShoesByPrice() {
-        List<Shoe> shoesList = new ArrayList<>();
-
-        Shoe shoe = new Shoe();
-        shoe.setBrand("Tory Birch");
-        shoe.setShoeName("Golden");
-        shoe.setPrice(BigDecimal.valueOf(1200.00));
-        shoe.setCategory("Women");
-        shoe.setImageUrl("http://google.com");
-
-        Shoe shoe2 = new Shoe();
-        shoe2.setBrand("Gucci");
-        shoe2.setShoeName("cool sneaker");
-        shoe2.setPrice(BigDecimal.valueOf(1200.00));
-        shoe2.setCategory("Women");
-        shoe2.setImageUrl("http://google.com");
-
-        shoesList.add(shoe);
-        shoesList.add(shoe2);
-
-        shoeRepo.save(shoe);
-        shoeRepo.save(shoe2);
-
-        List<Shoe> listFromRepo = shoeRepo.findAllByPrice(BigDecimal.valueOf(1200.00));
-
-        assertEquals(2, listFromRepo.size());
-
-    }
 
     @Test
     @Transactional
