@@ -1,6 +1,7 @@
 package com.jrmj.CustomerService.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jrmj.CustomerService.model.Address;
 import com.jrmj.CustomerService.model.Customer;
 import com.jrmj.CustomerService.repository.CustomerRepository;
 import org.junit.Before;
@@ -35,6 +36,15 @@ public class CustomerServiceControllerTest {
 
     @Before
     public void setUp() throws Exception {
+        Address addressShipping = new Address("33 Happy Drive", "Atlanta", "GA", "30350");
+        Address addressBilling = new Address("255 Test Street", "Apt 5B", "Dunwoody", "GA", "30333");
 
+        customer1 = new Customer();
+        customer1.setEmail("test@customer.net");
+        customer1.setFirstName("Test");
+        customer1.setLastName("Customer");
+        customer1.setAddressShipping(addressShipping);
+        customer1.setAddressBilling(addressBilling);
+        customer1.setPhoneNumber("404-444-4040");
     }
 }

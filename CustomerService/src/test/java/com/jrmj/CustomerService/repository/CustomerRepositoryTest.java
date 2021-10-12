@@ -43,6 +43,7 @@ public class CustomerRepositoryTest {
         testCustomer.setEmail("test@customer.net");
         testCustomer.setFirstName("Test");
         testCustomer.setLastName("Customer");
+        testCustomer.setPassword("12345678");
         testCustomer.setAddressShipping(addressShipping);
         testCustomer.setAddressBilling(addressBilling);
         testCustomer.setPhoneNumber("404-444-4040");
@@ -51,15 +52,15 @@ public class CustomerRepositoryTest {
 
         testCustomer.setId(storedCustomer.getId());
 
-        Address storedShipping = addressRepo.findById(storedCustomer.getAddressShipping().getId());
-        Address storedBilling = addressRepo.findById(storedCustomer.getAddressBilling().getId());
+        Optional<Address> storedShipping = addressRepo.findById(storedCustomer.getAddressShipping().getId());
+        Optional<Address> storedBilling = addressRepo.findById(storedCustomer.getAddressBilling().getId());
 
-        addressShipping.setId(storedShipping.getId());
-        addressBilling.setId(storedBilling.getId());
+        addressShipping.setId(storedShipping.get().getId());
+        addressBilling.setId(storedBilling.get().getId());
 
         assertEquals(testCustomer, storedCustomer);
-        assertEquals(addressShipping, storedShipping);
-        assertEquals(addressBilling, storedBilling);
+        assertEquals(addressShipping, storedShipping.get());
+        assertEquals(addressBilling, storedBilling.get());
     }
 
     @Test
@@ -75,6 +76,7 @@ public class CustomerRepositoryTest {
         testCustomer1.setEmail("test@customer.net");
         testCustomer1.setFirstName("Test");
         testCustomer1.setLastName("Customer");
+        testCustomer1.setPassword("12345678");
         testCustomer1.setAddressShipping(addressShipping1);
         testCustomer1.setAddressBilling(addressBilling1);
         testCustomer1.setPhoneNumber("404-444-4040");
@@ -83,6 +85,7 @@ public class CustomerRepositoryTest {
         testCustomer2.setEmail("customer@test.net");
         testCustomer2.setFirstName("Silly");
         testCustomer2.setLastName("Person");
+        testCustomer2.setPassword("12345678");
         testCustomer2.setAddressShipping(addressShipping2);
         testCustomer2.setAddressBilling(addressBilling2);
         testCustomer2.setPhoneNumber("678-768-8768");
@@ -105,6 +108,7 @@ public class CustomerRepositoryTest {
         testCustomer.setEmail("test@customer.net");
         testCustomer.setFirstName("Test");
         testCustomer.setLastName("Customer");
+        testCustomer.setPassword("12345678");
         testCustomer.setAddressShipping(addressShipping);
         testCustomer.setAddressBilling(addressBilling);
         testCustomer.setPhoneNumber("404-444-4040");
@@ -128,6 +132,7 @@ public class CustomerRepositoryTest {
         testCustomer.setEmail("test@customer.net");
         testCustomer.setFirstName("Test");
         testCustomer.setLastName("Customer");
+        testCustomer.setPassword("12345678");
         testCustomer.setAddressShipping(addressShipping);
         testCustomer.setAddressBilling(addressBilling);
         testCustomer.setPhoneNumber("404-444-4040");
@@ -151,6 +156,7 @@ public class CustomerRepositoryTest {
         testCustomer.setEmail("test@customer.net");
         testCustomer.setFirstName("Test");
         testCustomer.setLastName("Customer");
+        testCustomer.setPassword("12345678");
         testCustomer.setAddressShipping(addressShipping);
         testCustomer.setAddressBilling(addressBilling);
         testCustomer.setPhoneNumber("404-444-4040");
@@ -159,11 +165,11 @@ public class CustomerRepositoryTest {
 
         testCustomer.setId(storedCustomer.getId());
 
-        Address storedShipping = addressRepo.findById(storedCustomer.getAddressShipping().getId());
-        Address storedBilling = addressRepo.findById(storedCustomer.getAddressBilling().getId());
+        Optional<Address> storedShipping = addressRepo.findById(storedCustomer.getAddressShipping().getId());
+        Optional<Address> storedBilling = addressRepo.findById(storedCustomer.getAddressBilling().getId());
 
-        addressShipping.setId(storedShipping.getId());
-        addressBilling.setId(storedBilling.getId());
+        addressShipping.setId(storedShipping.get().getId());
+        addressBilling.setId(storedBilling.get().getId());
 
         Address newAddressShipping = new Address("55 New Drive", "Atlanta", "GA", "55055");
         Customer updateCustomer = new Customer();
