@@ -3,11 +3,14 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer>
-      <p>JMRJ</p>
-      <p>This is footer component</p>
-      <p>Copyright © 2021</p>
-      <p>Catchphrase here</p>
+    <footer className="footer">
+      
+      <p className="company-name">JMRJ</p>
+      <p className="copyright">Copyright © 2021</p>
+      <p className="catchphrase">Catchphrase here
+      Catchphrase here
+      Catchphrase here
+      Catchphrase here</p>
     </footer>
   );
 }
