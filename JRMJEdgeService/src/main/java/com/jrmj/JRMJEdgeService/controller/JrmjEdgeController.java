@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -31,9 +32,28 @@ public class JrmjEdgeController {
     }
 
     @GetMapping("/customers")
-    public List testCustomer() {
+    public List getAllCustomers() {
         return customerClient.getAllCustomers();
     }
+
+    @GetMapping("/customers/{id}")
+    public Object getCustomerById(@PathVariable Integer id) {
+        return customerClient.getCustomerById(id);
+    }
+
+    @PutMapping("/customers/{id}")
+    public Object updateCustomer(@PathVariable Integer id, @RequestBody Object customer) {
+        return customerClient.updateCustomer(id, customer);
+    }
+
+    @DeleteMapping("/customers/{id}")
+    public HashMap<String, String> deleteCustomer(@PathVariable Integer id) {
+        return customerClient.deleteCustomer(id);
+    }
+
+
+
+    // ------ PRODUCTS ------
 
     @PostMapping("/products")
     public Object addProduct(@RequestBody Object product) {
