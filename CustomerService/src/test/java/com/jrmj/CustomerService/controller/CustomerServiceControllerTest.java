@@ -99,7 +99,7 @@ public class CustomerServiceControllerTest {
                         .content(inputJson)
                         .contentType(MediaType.APPLICATION_JSON))
                         .andExpect(status().isCreated())
-                        .andExpect(content().json(customerJson));
+                        .andExpect(content().json(inputJson));
 
     }
 
