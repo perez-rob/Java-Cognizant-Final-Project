@@ -1,9 +1,11 @@
 package com.jrmj.ProductService.repository;
 
-import com.jrmj.ProductService.model.Product;
+import com.jrmj.ProductService.model.Shoes;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Integer> {
+public interface ShoeRepository extends JpaRepository<Shoes, Integer> {
+
+
 }

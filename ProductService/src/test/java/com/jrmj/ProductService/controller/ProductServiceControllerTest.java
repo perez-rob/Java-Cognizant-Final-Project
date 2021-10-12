@@ -1,8 +1,8 @@
 package com.jrmj.ProductService.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jrmj.ProductService.model.Product;
-import com.jrmj.ProductService.repository.ProductRepository;
+import com.jrmj.ProductService.model.Shoes;
+import com.jrmj.ProductService.repository.ShoeRepository;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +14,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 @RunWith(SpringRunner.class)
 @WebMvcTest(ProductServiceController.class)
 public class ProductServiceControllerTest {
@@ -24,13 +22,13 @@ public class ProductServiceControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private ProductRepository productRepo;
+    private ShoeRepository productRepo;
 
     private ObjectMapper mapper = new ObjectMapper();
 
-    private Product product1;
+    private Shoes product1;
     private String productJson;
-    private List<Product> allProducts = new ArrayList<>();
+    private List<Shoes> allProducts = new ArrayList<>();
     private String allProductsJson;
 
     @Before
