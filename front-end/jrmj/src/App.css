@@ -1,0 +1,285 @@
+* {
+  font-family: Helvetica, Arial, sans-serif;
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-align: unset;
+}
+
+:root{
+  --main-bg-color: black;
+  --main-text-color: white;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-bottom: 0;
+}
+
+/* -----------------------------------------------------------NAVBAR */
+
+.message {
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  font-size: .8rem;
+  padding: .3rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-bottom-style: none;
+  display: none;
+  }
+
+
+
+
+.nav-wrapper {
+  display: flex;
+  position:fixed;
+  width: 35%;
+  min-height: 100vh;
+  float: left;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2rem;
+  margin-top: .2rem;
+  padding-left: 1rem;
+  
+
+}
+
+
+.logo{
+  padding-bottom: 2rem;
+
+}
+.logo a {
+  color: var(--main-text-color);
+  text-decoration: none;
+
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+ul {
+  padding-bottom: 2rem;
+
+}
+
+li a {
+  color: var(--main-text-color);
+  text-decoration: none;
+}
+
+
+
+  /* TO set content for mobile */
+.content {
+  float: right;
+  width: 65%;
+  padding-left:2px;
+}
+
+/* ----------------------------------------------------------------SHOE CARDS */
+
+.card-wrapper {
+  border: .1rem solid var(--main-bg-color);
+  margin-left: auto;
+  margin-right: auto;
+  margin: 1rem auto 1rem auto;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.shoe-card-img {
+  text-align: center;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-left {
+padding-left: 3rem;
+}
+
+.card-right {
+  padding-right: 3rem;
+}
+
+.shoe-font {
+  font-size: 1rem;
+  font-weight: bolder;
+}
+
+/* -----------------------------------------------------------Footer */
+
+.footer {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem;
+
+}
+
+.company-name {
+  font-weight: bolder;
+
+}
+
+.copyright {
+  font-style: italic;
+
+}
+
+.catchphrase {
+  border: 2px dashed black;
+  text-align: center;
+}
+
+
+
+/* upper limit of mobile devices */
+@media only screen and (min-width: 480px) {
+  
+  html {
+    font-size: 18px;
+  }
+
+}
+
+/* upper limit of ipads and tablets */
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 20px;
+  }
+  
+  .super-header {
+    position: fixed;
+    min-height: 15vh;
+
+    
+  }
+  .logo {
+    width: 10vw;
+    padding-left: 4rem;
+    padding-right: .5rem;
+  }
+  .message {
+    padding: .5rem;
+    display: block;
+    position: relative;
+    
+  }
+  .nav-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 15vh;
+    float: none;
+    padding-top: 2rem;
+    margin-top: 0;
+    flex-direction: row;
+
+      
+  }
+
+  .hack-component {
+    min-height: 30vh;
+  }
+  
+  .content {
+    float: none;
+    width: 100%;
+    min-height: auto;
+    padding: 0px;
+  }
+  
+  .sidebar {
+    flex-direction: row;
+  }
+
+  .nav-links-start {
+    display: flex;
+    justify-content: flex-start;
+    width: 35vw;
+    padding-right: 4rem;
+    padding-left: 3rem;
+  }
+
+  .nav-links-start li {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .nav-links-end {
+    display: flex;
+    justify-content: flex-end;
+    width: 55vw;
+    padding-right: 5rem;
+    padding-left: .5rem;
+  }
+
+  .nav-links-end li {
+    padding-left: 3rem;
+
+  }
+
+  .card-wrapper {
+    width: 33%;
+  }
+  .multi-card-wrapper {
+    display: flex;
+  }
+
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .company-name {
+    width:33%;
+    }
+  
+  .copyright {
+     width:33%;
+   }
+    
+   .catchphrase {
+     width:33%;
+   }
+
+}
+
+/* upper limits of smaller screens and laptops */
+@media only screen and (min-width: 1024px) {
+  html {
+    font-size: 20px;
+    }
+  
+    
+}
+
+/* upper limits of desktops and semi-large screens */
+@media only screen and (min-width: 1200px) {
+  html {
+    font-size: 22px;
+  }
+}
+
+/* Extra large screens - will look weird regardless unless more content appears... */
+@media only screen and (min-width: 1500px) {
+  html {
+    font-size: 24px;
+  }
+}
