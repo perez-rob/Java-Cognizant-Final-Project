@@ -3,6 +3,7 @@ package com.jrmj.CustomerService.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jrmj.CustomerService.model.Address;
 import com.jrmj.CustomerService.model.Customer;
+import com.jrmj.CustomerService.repository.AddressRepository;
 import com.jrmj.CustomerService.repository.CustomerRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,9 +19,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(CustomerServiceController.class)
@@ -32,6 +35,9 @@ public class CustomerServiceControllerTest {
     @MockBean
     private CustomerRepository customerRepo;
 
+    @MockBean
+    private AddressRepository addressRepo;
+
     private ObjectMapper mapper = new ObjectMapper();
 
     private Customer customer1;
@@ -41,6 +47,9 @@ public class CustomerServiceControllerTest {
 
     @Before
     public void setUp() throws Exception {
+        customerRepo.deleteAll();
+        addressRepo.deleteAll();
+
         Address addressShipping = new Address("33 Happy Drive", "Atlanta", "GA", "30350");
         Address addressBilling = new Address("255 Test Street", "Apt 5B", "Dunwoody", "GA", "30333");
 
@@ -73,6 +82,9 @@ public class CustomerServiceControllerTest {
 
         allCustomersJson = mapper.writeValueAsString(allCustomers);
 
+//        customerRepo.save(customer1);
+//        customerRepo.save(testCustomer2);
+
     }
 
     @Test
@@ -83,6 +95,7 @@ public class CustomerServiceControllerTest {
         Customer testCustomer = new Customer();
         testCustomer.setEmail("test@customer.net");
         testCustomer.setFirstName("Test");
+        testCustomer.setId(99);
         testCustomer.setLastName("Customer");
         testCustomer.setPassword("12345678");
         testCustomer.setAddressShipping(testAddressShipping);
@@ -91,26 +104,24 @@ public class CustomerServiceControllerTest {
 
         String inputJson = mapper.writeValueAsString(testCustomer);
 
-        // NOT SURE IF WE NEED THIS?
-        // given(customerRepo.save(testCustomer)).willReturn(customer1);
+        when(customerRepo.save(testCustomer)).thenReturn(customer1);
 
         mockMvc.perform(
                 post("/customers")
                         .content(inputJson)
                         .contentType(MediaType.APPLICATION_JSON))
                         .andExpect(status().isCreated())
-                        .andExpect(content().json(inputJson));
+                        .andExpect(content().json(customerJson));
 
     }
 
     @Test
     public void shouldReturnAllCustomerOnGet() throws Exception {
 
-        //need this??
-        // given(customerRepo.findAll()).willReturn(allCustomers);
+        when(customerRepo.findAll()).thenReturn(allCustomers);
 
         mockMvc.perform(
-                get("/customrers"))
+                get("/customers"))
                 .andExpect(status().isOk())
                 .andExpect(content().json(allCustomersJson));
 
@@ -118,11 +129,12 @@ public class CustomerServiceControllerTest {
 
     @Test
     public void shouldReturnCustomerOnGetById() throws Exception {
-        //need this??
-        // given(customerRepo.findById(99)).willReturn(customer1);
+
+        when(customerRepo.findById(99)).thenReturn(java.util.Optional.ofNullable(customer1));
 
         mockMvc.perform(
                 get("/customers/99"))
+                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().json(customerJson));
     }
@@ -157,6 +169,7 @@ public class CustomerServiceControllerTest {
     public void shouldDeleteCustomerByIdOnDelete() throws Exception {
         mockMvc.perform(
                 delete("/customers/99"))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(content().json("{'message': 'customer 99 deleted.', 'status': 'success'}"));
     }
 }
