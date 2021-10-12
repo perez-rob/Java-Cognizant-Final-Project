@@ -1,7 +1,7 @@
 package com.jrmj.ProductService.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jrmj.ProductService.model.Shoes;
+import com.jrmj.ProductService.model.Shoe;
 import com.jrmj.ProductService.repository.ShoeRepository;
 import org.junit.Before;
 import org.junit.runner.RunWith;
@@ -26,9 +26,9 @@ public class ProductServiceControllerTest {
 
     private ObjectMapper mapper = new ObjectMapper();
 
-    private Shoes product1;
+    private Shoe product1;
     private String productJson;
-    private List<Shoes> allProducts = new ArrayList<>();
+    private List<Shoe> allProducts = new ArrayList<>();
     private String allProductsJson;
 
     @Before

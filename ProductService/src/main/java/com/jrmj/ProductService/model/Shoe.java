@@ -8,8 +8,9 @@ import java.util.Objects;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//used to have plural shoes, mysql has plural, trying to do this in singular here
 @Table(name = "shoes")
-public class Shoes {
+public class Shoe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,11 +18,11 @@ public class Shoes {
 
     private String brand;
     private String shoeName;
-    private Integer category;
+    private String category;
     private String imageUrl;
-    private BigDecimal price;
+    private BigDecimal price = new BigDecimal(0);
 
-    public Shoes() {
+    public Shoe() {
     }
 
     public Integer getShoeId() {
@@ -48,11 +49,11 @@ public class Shoes {
         this.shoeName = shoeName;
     }
 
-    public Integer getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(Integer category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
@@ -76,7 +77,7 @@ public class Shoes {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Shoes shoes = (Shoes) o;
+        Shoe shoes = (Shoe) o;
         return Objects.equals(shoeId, shoes.shoeId) && Objects.equals(brand, shoes.brand) && Objects.equals(shoeName, shoes.shoeName) && Objects.equals(category, shoes.category) && Objects.equals(imageUrl, shoes.imageUrl) && Objects.equals(price, shoes.price);
     }
 

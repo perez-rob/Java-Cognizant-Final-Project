@@ -1,6 +1,6 @@
 package com.jrmj.ProductService.controller;
 
-import com.jrmj.ProductService.model.Shoes;
+import com.jrmj.ProductService.model.Shoe;
 import com.jrmj.ProductService.repository.ShoeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,13 +16,13 @@ public class ProductServiceController {
 
     @PostMapping("/products")
     @ResponseStatus(HttpStatus.CREATED)
-    public Shoes addProduct(@RequestBody Shoes product) {
+    public Shoe addProduct(@RequestBody Shoe product) {
         return productRepo.save(product);
     }
 
     @GetMapping("/products")
     @ResponseStatus(HttpStatus.OK)
-    public List<Shoes> getAllProducts() {
+    public List<Shoe> getAllProducts() {
         return productRepo.findAll();
     }
 }
