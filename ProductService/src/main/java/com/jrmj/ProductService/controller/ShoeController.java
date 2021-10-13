@@ -29,7 +29,7 @@ public class ShoeController {
 
     @GetMapping("/shoes/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Shoe getShoeById(@PathVariable int id) {
+    public Shoe getShoeById(@PathVariable Integer id) {
         return shoeRepo.getById(id);
     }
 

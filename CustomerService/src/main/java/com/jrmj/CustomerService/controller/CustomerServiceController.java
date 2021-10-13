@@ -27,8 +27,6 @@ public class CustomerServiceController {
     @ResponseStatus(HttpStatus.CREATED)
     public Customer addCustomer(@RequestBody Customer customer) {
         customer.setPassword(BCrypt.hashpw(customer.getPassword(), BCrypt.gensalt()));
-        System.out.println("-----------PASSWORD----------------");
-        System.out.println(customer.getPassword());
         return customerRepo.save(customer);
     }
 
@@ -50,10 +48,6 @@ public class CustomerServiceController {
     @ResponseStatus(HttpStatus.OK)
     public Customer updateCustomer(@PathVariable Integer id, @RequestBody Customer customer) {
 
-        // remove after checking
-        System.out.println("-----------------CHECK-------------------");
-        System.out.println(customer.getId());
-        //-------------------------------------------------------------
 
         if( customer.getId() == null ) {
             customer.setId(id);
@@ -61,6 +55,10 @@ public class CustomerServiceController {
 
         if(!customer.getId().equals(id)) {
             throw new IllegalArgumentException("Id in parameter must match the ID in the request body");
+        }
+
+        if(customer.getPassword() != null) {
+            customer.setPassword(BCrypt.hashpw(customer.getPassword(), BCrypt.gensalt()));
         }
 
         return customerRepo.save(customer);

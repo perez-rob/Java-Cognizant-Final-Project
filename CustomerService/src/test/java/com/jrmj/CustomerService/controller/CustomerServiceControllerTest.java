@@ -103,6 +103,8 @@ public class CustomerServiceControllerTest {
         testCustomer.setPhoneNumber("404-444-4040");
 
         String inputJson = mapper.writeValueAsString(testCustomer);
+        System.out.println("MEOW");
+        System.out.println(inputJson);
 
         when(customerRepo.save(testCustomer)).thenReturn(customer1);
 
