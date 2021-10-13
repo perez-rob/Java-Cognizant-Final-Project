@@ -1,10 +1,11 @@
 import React from 'react'
 import Testshoe from '../images/Testshoe.jpg'
+
 function ShoeCard() {
     return (
        <>
        <div className="card-wrapper"> 
-        <img className="shoe-card-img" src={ Testshoe } alt="Shoe image" />
+        <img className="shoe-card-img" src={ Testshoe } alt="Shoes" />
           
         <div className="card-info">
         <div className="card-left">
