@@ -95,12 +95,12 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return Objects.equals(id, customer.id) && Objects.equals(email, customer.email) && Objects.equals(password, customer.password) && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(addressShipping, customer.addressShipping) && Objects.equals(addressBilling, customer.addressBilling) && Objects.equals(phoneNumber, customer.phoneNumber);
+        return Objects.equals(id, customer.id) && Objects.equals(email, customer.email) && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(addressShipping, customer.addressShipping) && Objects.equals(addressBilling, customer.addressBilling) && Objects.equals(phoneNumber, customer.phoneNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, email, password, firstName, lastName, addressShipping, addressBilling, phoneNumber);
+        return Objects.hash(id, email, firstName, lastName, addressShipping, addressBilling, phoneNumber);
     }
 
     @Override
@@ -108,7 +108,6 @@ public class Customer {
         return "Customer{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", addressShipping=" + addressShipping +
