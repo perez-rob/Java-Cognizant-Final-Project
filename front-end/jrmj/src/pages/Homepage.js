@@ -1,7 +1,23 @@
+import api from "../api";
 import { Header, Footer, ShoeCard } from "../components";
 import Shoebanner from "../images/Shoebanner.jpg";
+import { useMutation, useQuery, useQueryClient } from 'react-query';
+
+
+const fetchShoes = async () => await api.index();
 
 function Homepage() {
+
+    // shoes is the key
+    const {status, data, error } = useQuery('shoes', fetchShoes)
+  
+    console.log(data);
+    
+    
+
+
+
+
     return (
         <>
      <Header />
