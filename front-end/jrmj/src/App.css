@@ -33,6 +33,49 @@ h1, h2, h3, h4, h5, h6, p {
   display: none;
   }
 
+  
+.scroll-text {
+  text-align: right;
+
+  /* animation properties */
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  
+  -moz-animation: my-animation 25s ease-in-out infinite;
+  -webkit-animation: my-animation 25s ease-in-out infinite;
+  animation: my-animation 25s ease-in-out infinite;
+}
+
+/* for Firefox */
+@-moz-keyframes my-animation {
+  from { -moz-transform: translateX(100%); }
+  to { -moz-transform: translateX(-100%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+  from { -webkit-transform: translateX(100%); }
+  to { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes my-animation {
+  from {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+.scroll-text:hover {
+  animation-play-state: paused;
+}
+
 
 
 
@@ -80,6 +123,10 @@ li a {
   text-decoration: none;
 }
 
+.cart-logo {
+  width: 2rem;
+  height: 2rem;
+}
 
 
   /* TO set content for mobile */
@@ -88,6 +135,38 @@ li a {
   width: 65%;
   padding-left:2px;
 }
+/* -----------------------------------------------------homepage */
+
+.banner {
+  width: 100%;
+
+}
+
+.banner-others {
+  display:none;
+}
+
+.results-wrapper {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem 5rem 1rem 5rem;
+
+}
+
+.filter-button {
+  width:6rem;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  padding: .2rem;
+
+}
+
+.results {
+  font-weight: bolder;
+}
+
+
 
 /* ----------------------------------------------------------------SHOE CARDS */
 
@@ -123,6 +202,64 @@ padding-left: 3rem;
   font-weight: bolder;
 }
 
+/* --------------------------------------------------------------Forms */
+
+.form-page-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content:space-evenly;
+}
+
+.loginTitle {
+  text-align: center;
+  font-family: cursive;
+  font-weight: bolder;
+  padding: 2rem;
+}
+.loginCard {
+  align-items: center;
+  padding: 3em;
+}
+ input {
+   border: 2px solid var(--main-bg-color);
+ }
+
+.img-wrapper {
+  width: 50%;
+  display: none;
+}
+
+.form-img {
+  width: 85%;
+  display: none;
+ 
+}
+
+
+.testWrapper {
+  display: flex;
+  justify-content: center;
+  width:50%;
+}
+
+.submitBtn {
+  text-align: center;
+  width: 100%;
+  margin: 1rem 0;
+  
+}
+
+.submitLoginBtn {
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  width: 100%;
+}
+
+.signupInstead {
+  text-align: center;
+  padding-top: 2rem;
+  font-size: 1rem;
+}
 /* -----------------------------------------------------------Footer */
 
 .footer {
@@ -136,17 +273,27 @@ padding-left: 3rem;
 
 .company-name {
   font-weight: bolder;
+  padding-top: 1rem;
 
 }
 
 .copyright {
   font-style: italic;
+  padding-top: 1rem;
 
+}
+.catchphrase-container {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ padding-top: 1rem;
 }
 
 .catchphrase {
   border: 2px dashed black;
   text-align: center;
+  width:50%;
+  padding: 2rem;
 }
 
 
@@ -196,7 +343,7 @@ padding-left: 3rem;
   }
 
   .hack-component {
-    min-height: 30vh;
+    min-height: 25vh;
   }
   
   .content {
@@ -205,7 +352,22 @@ padding-left: 3rem;
     min-height: auto;
     padding: 0px;
   }
-  
+  .hero {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--main-bg-color);
+    margin-top: -5rem;
+  }
+  .banner {
+    width:34%;
+
+  }
+  .banner-others{
+    display:block;
+    width:34%;
+  }
+
   .sidebar {
     flex-direction: row;
   }
@@ -237,27 +399,76 @@ padding-left: 3rem;
 
   .card-wrapper {
     width: 33%;
+    margin:0;
+    padding: 1rem .2rem; 
   }
   .multi-card-wrapper {
     display: flex;
+    flex-wrap: wrap;
+    
   }
+
+  .img-wrapper {
+    display: block;
+  }
+
+  .form-page-wrapper{
+    margin-top: -5rem;
+
+  }
+  .form-img {
+    display: block;
+    overflow: hidden;
+  }
+
+  .explore-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    
+  }
+
+  .shop-phrase {
+    width: 100%;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+ .loginCard {
+   font-size: 1.5rem;
+   margin-left: 5rem;
+   
+ }
+  
 
   .footer {
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 2rem;
   }
+
+  .hz-wrapper {
+    margin-top: 10rem;
+  }
+
+  
 
   .company-name {
     width:33%;
+    text-align: center;
+    
     }
   
   .copyright {
      width:33%;
+     text-align: center;
    }
     
-   .catchphrase {
+   .catchphrase-container {
      width:33%;
    }
+
+   
 
 }
 

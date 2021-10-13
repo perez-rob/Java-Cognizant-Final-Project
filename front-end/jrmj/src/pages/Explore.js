@@ -1,20 +1,33 @@
 import React from 'react'
 import { Header, Footer } from "../components";
-
+import { Link } from 'react-router-dom';
+import Lady from "../images/Lady.jpg"
 
 function Explore() {
     return (
-        <>
-          <Header />
-          <div className="content">
-         {/* Leave this here for now to fix content from going behind navbar */}
-         <div className="hack-component"></div>
-         <h1 className="text-center">
-          This is Explore/the about the company or about us page</h1>
-          
-          <Footer />
-          </div>  
-        </>
+      <>
+      <Header />
+      <div className="content">
+     {/* Leave this here for now to fix content from going behind navbar */}
+     <div className="hack-component"></div>
+
+            {/* This page needs to be redone altogether */}
+        <div className="explore-wrapper">
+        <div className="img-wrapper">
+          <img className="form-img" src={ Lady }  alt="Lady using pointer finger under chin looking up to sky" />
+
+        </div>
+        <div>
+          <p>Ever had a dream of only seeing fancy shoes?</p>
+          <p style={{fontWeight:"bold"}}>That's why we created JRMJ.</p>
+        </div>
+        </div>
+        <Link to="/">
+        <h1 className="shop-phrase">Come Shop With Us Today</h1>
+        </Link>
+      <Footer />  
+      </div>
+    </>
     )
 }
 
