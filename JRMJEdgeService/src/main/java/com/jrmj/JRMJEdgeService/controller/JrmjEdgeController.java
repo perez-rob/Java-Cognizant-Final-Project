@@ -26,6 +26,8 @@ public class JrmjEdgeController {
         this.productClient = productClient;
     }
 
+    // ------ CUSTOMERS ------
+
     @PostMapping("/customers")
     public Object addCustomer(@RequestBody Object customer) {
         return customerClient.addCustomer(customer);
@@ -52,21 +54,25 @@ public class JrmjEdgeController {
     }
 
 
-
     // ------ PRODUCTS ------
 
-    @PostMapping("/products")
-    public Object addProduct(@RequestBody Object product) {
-        return productClient.addProduct(product);
+    @GetMapping("/shoes")
+    public List getAllShoes() {
+        return productClient.getAllShoes();
     }
 
-    @GetMapping("/products")
-    public List getProduct() {
-        return productClient.getAllProducts();
+    @GetMapping("/shoes/{id}")
+    public Object getShoeById(@PathVariable Integer id) {
+        return productClient.getShoeById(id);
     }
 
-    @GetMapping("/trial")
-    public String getTrial() {
-        return "Trial";
+    @GetMapping("/shoes/category/{category}")
+    public List getShoesByCategory(@PathVariable String category) {
+        return productClient.getShoesByCategory(category);
+    }
+
+    @GetMapping("/shoes/brand/{brand}")
+    public List getShoesByBrand(@PathVariable String brand) {
+        return productClient.getShoesByBrand(brand);
     }
 }
