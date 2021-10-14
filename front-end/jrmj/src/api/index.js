@@ -21,8 +21,13 @@ const api = {
   },
 
   newCustomer(payload, path = "customers") {
-    return ky.post(`${baseUrl}/${path}`, { json: payload }).json()
+    return ky.post(`${baseUrl}/${path}`, { json: payload }).json();
   },
+
+  // WHAT IF NO .json() here???
+  customerByEmail(email, path = "customers/email") {
+    return ky.get(`${baseUrl}/${path}/${email}`).json();
+  }
 };
 
 export default api;

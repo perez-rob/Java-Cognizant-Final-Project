@@ -105,37 +105,9 @@ function Signup() {
         addCustomer.mutate(data);
         history.push("/")
         
-        // THIS IS SAMPLE FOR JWT STUFF IF WE END UP TRYING IT
+        // ADD CONSUMER CONTEXT STUFF HERE
         //
-        // let result = await registerApi.json();
-        // if (result.status === "success") {
-        //   //login redirect
-        //   const loginApi = await fetch(`${baseApiUrl}/auth`, {
-        //     method: "POST",
-        //     headers: {
-        //       Accept: "application/json",
-        //       "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify(data),
-        //   }).catch((error) => {
-        //     setToastStatus("error");
-        //     console.error("Error:", error);
-        //   });
-        //   let result = await loginApi.json();
-        //   if (result.success && result.token) {
-        //     Cookies.set("token", result.token);
-        //     setToastStatus("success");
-        //     setTimeout(() => Router.push("/SearchBulletins"), 750);
-        //   } else {
-        //     setStateFormMessage(result);
-        //   }
-        // } else {
-        //   setToastStatus("error");
-        //   setStateFormMessage({
-        //     status: "error",
-        //     error: result.message.slice(5),
-        //   });
-        // }
+       
       }
   }
 }

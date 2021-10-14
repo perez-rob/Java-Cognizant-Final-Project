@@ -72,4 +72,9 @@ public class CustomerServiceController {
         responseMsg.put("message", "customer " + id + " deleted.");
         return responseMsg;
     }
+
+    @GetMapping("/customers/email/{email}")
+    public List<Customer> getCustomerByEmail(@PathVariable String email) {
+        return customerRepo.findByEmail(email);
+    }
 }

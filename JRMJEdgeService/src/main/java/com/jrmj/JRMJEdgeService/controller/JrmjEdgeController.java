@@ -53,6 +53,11 @@ public class JrmjEdgeController {
         return customerClient.deleteCustomer(id);
     }
 
+    @GetMapping("/customers/email/{email}")
+    public List getCustomerByEmail(@PathVariable String email) {
+        return customerClient.getCustomerByEmail(email);
+    }
+
 
     // ------ PRODUCTS ------
 

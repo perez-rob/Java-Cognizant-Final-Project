@@ -1,2 +1,7 @@
-// This is placeholder for login auth stuff?
-// not sure if we'll need it
+import bcrypt from "bcryptjs";
+
+export const validatePassword = (enteredPassword, retrievedPassword) => {
+let validated = null;
+ validated = bcrypt.compareSync(enteredPassword, retrievedPassword);
+  return validated;
+};
