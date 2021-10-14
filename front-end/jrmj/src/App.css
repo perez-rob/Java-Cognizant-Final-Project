@@ -19,6 +19,9 @@ h1, h2, h3, h4, h5, h6, p {
   margin-bottom: 0;
 }
 
+/* ------------------------------------------------------------Truncating */
+
+
 /* -----------------------------------------------------------NAVBAR */
 
 .message {
@@ -150,7 +153,7 @@ li a {
   display:flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 1rem 5rem 1rem 5rem;
+  padding: 1rem 1rem 1rem 1rem;
 
 }
 
@@ -181,25 +184,52 @@ li a {
 }
 
 .shoe-card-img {
-  text-align: center;
+align-self: center;
+  max-width: 50%;
+
 }
 
 .card-info {
   display: flex;
   justify-content: space-between;
+  flex-grow: 1;
+
 }
 
 .card-left {
-padding-left: 3rem;
+width:45%;
+padding-left: 5%;
+/* flex-grow: 1; */
+flex-basis: 1 1 100%;
+
 }
 
 .card-right {
-  padding-right: 3rem;
+  padding-right: 5%;
+
 }
 
-.shoe-font {
+.shoe-brand-font {
   font-size: 1rem;
   font-weight: bolder;
+}
+
+.shoe-font{
+  font-size: .8rem;
+}
+
+.shoe-price-font{
+  font-size: 1.3rem;
+  font-weight: bolder;
+
+}
+
+.add-to-cart {
+  padding-left:.3rem;
+  padding-right: .3rem;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+
 }
 
 /* --------------------------------------------------------------Forms */
@@ -309,16 +339,75 @@ padding-left: 3rem;
 
 /* upper limit of ipads and tablets */
 @media only screen and (min-width: 768px) {
+
+
+
+
   html {
     font-size: 20px;
+    --lh: 1.3rem;
+    line-height: var(--lh);
+  }
+ 
+  
+  .truncate-overflow {
+    --max-lines: 2;
+    position: relative;
+    max-height: calc(var(--lh) * var(--max-lines));
+    overflow: hidden;
+    padding-right: 1rem; /* space for ellipsis */
+  }
+  .truncate-overflow::before {
+    position: absolute;
+    content: "...";
+    inset-block-end: 0; /* "bottom" */
+    inset-inline-end: 0; /* "right" */
+  }
+  .truncate-overflow::after {
+    content: "";
+    position: absolute;
+    inset-inline-end: 0; /* "right" */
+    width: 1rem;
+    height: 1rem;
+    background: white;
+  }
+
+  
+  .truncate-overflow-brand {
+    --max-lines: 1;
+    position: relative;
+    max-height: calc(var(--lh) * var(--max-lines));
+    overflow: hidden;
+    padding-right: 1rem; /* space for ellipsis */
+  }
+  .truncate-overflow-brand::before {
+    position: absolute;
+    content: "...";
+    inset-block-end: 0; /* "bottom" */
+    inset-inline-end: 0; /* "right" */
+  }
+  .truncate-overflow-brand::after {
+    content: "";
+    position: absolute;
+    inset-inline-end: 0; /* "right" */
+    width: 1rem;
+    height: 1rem;
+    background: white;
   }
   
+  
+  
+
   .super-header {
-    position: fixed;
+    position: sticky;
+    top:0;
     min-height: 15vh;
+    z-index: 999;
 
     
   }
+
+
   .logo {
     width: 10vw;
     padding-left: 4rem;
@@ -328,6 +417,7 @@ padding-left: 3rem;
     padding: .5rem;
     display: block;
     position: relative;
+    min-height: 6vh;
     
   }
   .nav-wrapper {
@@ -342,10 +432,10 @@ padding-left: 3rem;
       
   }
 
-  .hack-component {
+  /* .hack-component {
     min-height: 25vh;
   }
-  
+   */
   .content {
     float: none;
     width: 100%;
@@ -357,7 +447,7 @@ padding-left: 3rem;
     flex-direction: row;
     align-items: center;
     background-color: var(--main-bg-color);
-    margin-top: -5rem;
+
   }
   .banner {
     width:34%;
@@ -398,9 +488,10 @@ padding-left: 3rem;
   }
 
   .card-wrapper {
-    width: 33%;
+    height: calc(100%/3);
+    width: calc(100%/3);
     margin:0;
-    padding: 1rem .2rem; 
+    padding: 1rem .2rem;
   }
   .multi-card-wrapper {
     display: flex;
