@@ -58,8 +58,7 @@ const FORM_DATA_REGISTER = {
 
 function Signup() {
 
-  // DONT THINK WE NEED THIS ANYMORE
-  // const [userInfo, setUserInfo] = useState({firstName: "", lastName: "", email:"", password:""});
+
 
   const history = useHistory();
 
@@ -71,12 +70,7 @@ function Signup() {
   const addCustomer = useMutation((payload) => api.newCustomer(payload));
 
   const handleChange = (e) => {
-    // const {name, value} = e.currentTarget;
 
-    // setUserInfo({
-    //   ...userInfo,
-    //   [name] : value,
-    // })
     setStateFormValid(false);
     const { name, value } = e.currentTarget;
 
