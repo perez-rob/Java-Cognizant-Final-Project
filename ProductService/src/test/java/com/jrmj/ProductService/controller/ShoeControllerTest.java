@@ -78,7 +78,7 @@ public class ShoeControllerTest {
 
     @Test
     public void shouldReturnShoeById() throws Exception {
-        given(shoeRepo.getById(30)).willReturn(shoe);
+        given(shoeRepo.findById(30)).willReturn(java.util.Optional.ofNullable(shoe));
 
         mockMvc.perform(
                         get("/shoes/30"))

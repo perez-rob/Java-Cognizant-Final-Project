@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -31,6 +32,7 @@ public class ShoeController {
     @ResponseStatus(HttpStatus.OK)
     public Shoe getShoeById(@PathVariable Integer id) {
         return shoeRepo.getById(id);
+
     }
 
     @GetMapping("/shoes/category/{category}")
@@ -46,7 +48,6 @@ public class ShoeController {
         List<Shoe> shoeList = shoeRepo.findAllByBrand(brand);
         return shoeList;
     }
-
 
 
 }
