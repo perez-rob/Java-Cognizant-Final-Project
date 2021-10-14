@@ -12,7 +12,7 @@ function Homepage() {
     // shoes is the key
     const {status, data, error } = useQuery('shoes', fetchShoes)
   
-    console.log(data);
+    console.log(data, "homepage");
     
     
 
@@ -24,24 +24,17 @@ function Homepage() {
      <Header />
      
      <div className="content">
-         {/* Leave this here for now to fix content from going behind navbar */}
-         <div className="hack-component"></div>
          <div className="hero"><img className="banner" src={ Shoebanner} alt="Banner with 2 shoes" /><img className="banner-others" src={ Shoebanner} alt="Banner with 2 shoes" /><img className="banner-others" src={ Shoebanner} alt="Banner with 2 shoes" /></div>
          <div>
          <h1 className="text-center">Shop Our Collection!</h1>
-         <div className="results-wrapper"><Filters /></div>
+         <div className="results-wrapper"><Filters  data={data} /></div>
          </div>
          <div className="multi-card-wrapper">
              {/* These will be mapped in eventually and the wrapper div will get moved to shoecard component*/}
-     <ShoeCard />
-     <ShoeCard />
-     <ShoeCard />
-     <ShoeCard />
-     <ShoeCard />
-     <ShoeCard />
-     <ShoeCard />
-     <ShoeCard />
-     
+     {status=="success"?
+     data.map(shoe => <ShoeCard data={shoe} key={data.shoeID} />) 
+     :null}
+          
         </div>
     
 

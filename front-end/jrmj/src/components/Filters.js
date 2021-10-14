@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Filters() {
+function Filters(data) {
     return (
         <>
             <button className="filter-button">Filter ↓</button>
-            <p className="results">008 Results</p>
+            <p className="results"> ??? Results</p>
         </>
     )
 }
