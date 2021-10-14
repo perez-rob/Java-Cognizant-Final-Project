@@ -1,10 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Header, Footer } from "../components";
 import { Link } from 'react-router-dom';
 import Lady2 from "../images/Lady2.jpg";
+import api from "../api";
+import { useMutation } from 'react-query';
 
 
 function Signup() {
+  const [userInfo, setUserInfo] = useState({firstName: "", lastName: "", email:"", password:""});
+
+  const handleChange = (e) => {
+    const {name, value} = e.currentTarget;
+
+    setUserInfo({
+      ...userInfo,
+      [name] : value,
+    })
+  }
+
+  const addCustomer = useMutation((payload) => api.newCustomer(payload));
+
+  // NEEDS FORM VALIDATION
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    addCustomer.mutate(userInfo)
+  }
+
     return (
         <>
           <Header />
@@ -16,7 +37,7 @@ function Signup() {
             <div className="loginCard">
               <div className="flex">
                 <form
-                  // onSubmit={handleFormSubmit}
+                  onSubmit={handleFormSubmit}
                       action="#"
                       className="loginForm"
                 >
@@ -27,12 +48,12 @@ function Signup() {
                         <label className="usernameLoginLabel">
                           
                           <input
-                            name="firstname"
+                            name="firstName"
                             type="text"
                             className=" usernameLoginInput"
                             placeholder="First Name"
-                            // value={formState.firstname}
-                            // onChange={handleChange}
+                            value={userInfo.firstName}
+                            onChange={handleChange}
                           />
                         </label>
                       </div>
@@ -41,12 +62,12 @@ function Signup() {
                         <label className="usernameLoginLabel">
                           
                           <input
-                            name="lastname"
+                            name="lastName"
                             type="text"
                             className=" usernameLoginInput"
                             placeholder="Last Name"
-                            // value={formState.lastname}
-                            // onChange={handleChange}
+                            value={userInfo.lastName}
+                            onChange={handleChange}
                           />
                         </label>
                       </div>
@@ -55,12 +76,12 @@ function Signup() {
                         <label className="usernameLoginLabel">
                           
                           <input
-                            name="username"
+                            name="email"
                             type="text"
                             className=" usernameLoginInput"
                             placeholder="Email"
-                            // value={formState.username}
-                            // onChange={handleChange}
+                            value={userInfo.email}
+                            onChange={handleChange}
                           />
                         </label>
                       </div>
@@ -73,8 +94,8 @@ function Signup() {
                             type="password"
                             className="passwordLoginInput"
                             placeholder="Password"
-                            // value={formState.password}
-                            // onChange={handleChange}
+                            value={userInfo.password}
+                            onChange={handleChange}
                           />
                         </label>
                       </div>
