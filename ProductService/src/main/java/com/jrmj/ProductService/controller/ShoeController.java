@@ -3,11 +3,14 @@ package com.jrmj.ProductService.controller;
 import com.jrmj.ProductService.model.Shoe;
 import com.jrmj.ProductService.repository.ShoeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -31,6 +34,7 @@ public class ShoeController {
     @ResponseStatus(HttpStatus.OK)
     public Shoe getShoeById(@PathVariable Integer id) {
         return shoeRepo.getById(id);
+
     }
 
     @GetMapping("/shoes/category/{category}")
@@ -46,7 +50,6 @@ public class ShoeController {
         List<Shoe> shoeList = shoeRepo.findAllByBrand(brand);
         return shoeList;
     }
-
 
 
 }

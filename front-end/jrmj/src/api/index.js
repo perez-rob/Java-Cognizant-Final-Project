@@ -24,7 +24,7 @@ const api = {
     return ky.post(`${baseUrl}/${path}`, { json: payload }).json();
   },
 
-  payment(payload, path = "payment"){
+  payment(payload, path = "charge"){
     return ky.post(`${baseUrl}/${path}`, { json: payload }).json();
 
   }
