@@ -8,7 +8,6 @@ import java.util.Objects;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-//used to have plural shoes, mysql has plural, trying to do this in singular here
 @Table(name = "shoes")
 public class Shoe {
 
@@ -20,7 +19,7 @@ public class Shoe {
     private String shoeName;
     private String category;
     private String imageUrl;
-    private BigDecimal price = new BigDecimal(0);
+    private BigDecimal price;
 
     public Shoe() {
     }

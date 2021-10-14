@@ -6,6 +6,10 @@ import Signup from './pages/Signup';
 import Explore from './pages/Explore';
 import Cart from './pages/Cart';
 import ConsumerProvider from './utils/ConsumerContext';
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
+
+const stripePromise = loadStripe('pk_test_51JjhRnLiea7p0n0HUnks0w0ZwHFJC3jHH6wKqSw13QHcwO5QRvi7bQoB7FZIeWdkBI3qUoqC0vtHe8wAXI4Yq5BG00ZLAjHxJe');
 
 function App() {
   return (
@@ -23,12 +27,16 @@ function App() {
             </Route>
             <Route path="/explore">
               <Explore />
-            </Route><Route path="/cart">
+            </Route>
+            <Elements stripe={stripePromise}>
+            <Route path="/cart">
               <Cart />
             </Route>
+            </Elements>
       </Switch>
       </Router>
     </ConsumerProvider>
+ 
   );
 }
 
