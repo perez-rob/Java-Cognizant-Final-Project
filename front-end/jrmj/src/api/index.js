@@ -21,8 +21,13 @@ const api = {
   },
 
   newCustomer(payload, path = "customers") {
-    return ky.post(`${baseUrl}/${path}`, { json: payload }).json()
+    return ky.post(`${baseUrl}/${path}`, { json: payload }).json();
   },
+
+  payment(payload, path = "payment"){
+    return ky.post(`${baseUrl}/${path}`, { json: payload }).json();
+
+  }
 };
 
 export default api;

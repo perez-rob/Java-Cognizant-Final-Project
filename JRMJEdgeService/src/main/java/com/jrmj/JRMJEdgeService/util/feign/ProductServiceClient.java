@@ -1,9 +1,7 @@
 package com.jrmj.JRMJEdgeService.util.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,4 +20,8 @@ public interface ProductServiceClient {
 
     @GetMapping("/shoes/brand/{brand}")
     public List getShoesByBrand(@PathVariable String brand);
+
+    @PostMapping("/charge")
+    public Object chargeCard(@RequestHeader(value="token") String token, @RequestHeader(value="amount") Double amount);
+
 }
