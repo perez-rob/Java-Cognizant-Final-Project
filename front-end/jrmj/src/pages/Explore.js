@@ -1,34 +1,43 @@
 import React from 'react'
 import { Header, Footer } from "../components";
 import { Link } from 'react-router-dom';
-import Lady from "../images/Lady.jpg"
+import shoes2 from "../images/shoes2.png"
+import mens2 from "../images/mens2.jpg"
 
 function Explore() {
-    return (
-      <>
+  return (
+    <>
       <Header />
       <div className="content">
-     {/* Leave this here for now to fix content from going behind navbar */}
-     <div className="hack-component"></div>
+        {/* Leave this here for now to fix content from going behind navbar */}
+        <div className="hack-component"></div>
 
-            {/* This page needs to be redone altogether */}
+        {/* This page needs to be redone altogether */}
         <div className="explore-wrapper">
-        <div className="img-wrapper">
-          <img className="form-img" src={ Lady }  alt="Lady using pointer finger under chin looking up to sky" />
-
-        </div>
-        <div>
-          <p>Ever had a dream of only seeing fancy shoes?</p>
-          <p style={{fontWeight:"bold"}}>That's why we created JRMJ.</p>
-        </div>
+          <div className="img-wrapper">
+            <img className="form-img" src={shoes2} alt="black high heels with gemstones" />
+          </div>
+          <div>
+            <p>JMRJ curates only the finest designer and high-end </p>
+              <p>
+                shoes from around the world. 
+             If they are the best, we have them.
+            </p>
+          
+          </div>
+          <div > <img src={mens2} alt="black high heels with gemstones" /></div>
+          <p>Our skilled curators travel the world to find you the shoe
+            of your dreams.
+          </p>
+            
         </div>
         <Link to="/">
-        <h1 className="shop-phrase">Come Shop With Us Today</h1>
+          <h2 className="shop-phrase">Enter a new world of luxury now.</h2>
         </Link>
-      <Footer />  
+        <Footer />
       </div>
     </>
-    )
+  )
 }
 
 export default Explore

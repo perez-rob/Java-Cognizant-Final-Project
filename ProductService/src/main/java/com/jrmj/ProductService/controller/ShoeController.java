@@ -3,6 +3,8 @@ package com.jrmj.ProductService.controller;
 import com.jrmj.ProductService.model.Shoe;
 import com.jrmj.ProductService.repository.ShoeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

@@ -434,6 +434,10 @@ padding-left: 3rem;
     margin-top: 3rem;
   }
 
+  a {
+    color: black;
+  }
+
  .loginCard {
    font-size: 1.5rem;
    margin-left: 5rem;
