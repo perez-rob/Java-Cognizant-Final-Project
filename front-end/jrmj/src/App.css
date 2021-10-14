@@ -232,6 +232,21 @@ flex-basis: 1 1 100%;
 
 }
 
+/* --------------------------------------------------------------Cart */
+
+.checkout-button {
+  width:6rem;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  padding: .2rem;
+}
+
+.clear-button {
+  width:4rem;
+  padding: .2rem;
+}
+
+
 /* --------------------------------------------------------------Forms */
 
 .form-page-wrapper {

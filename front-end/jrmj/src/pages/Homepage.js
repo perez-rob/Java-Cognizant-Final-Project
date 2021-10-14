@@ -14,10 +14,6 @@ function Homepage() {
   
     console.log(data, "homepage");
     
-    
-
-
-
 
     return (
         <>
