@@ -9,8 +9,6 @@ function Explore() {
     <>
       <Header />
       <div className="content">
-        {/* Leave this here for now to fix content from going behind navbar */}
-        <div className="hack-component"></div>
 
         {/* This page needs to be redone altogether */}
         <div className="explore-wrapper">
