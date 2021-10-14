@@ -75,4 +75,9 @@ public class JrmjEdgeController {
     public List getShoesByBrand(@PathVariable String brand) {
         return productClient.getShoesByBrand(brand);
     }
+
+    @PostMapping("/charge")
+    public Object chargeCard(@RequestHeader(value="token") String token, @RequestHeader(value="amount") Double amount) {
+        return productClient.chargeCard(token, amount);
+    }
 }

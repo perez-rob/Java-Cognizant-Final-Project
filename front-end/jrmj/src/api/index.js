@@ -1,24 +1,33 @@
 import ky from 'ky';
 
-const baseUrl = 'http://localhost:7979/shoes';
+const baseUrl = 'http://localhost:7979';
 
 
 const api = {
-  index() {
-    return ky.get(baseUrl).json();
+  index(path = "shoes") {
+    return ky.get(`${baseUrl}/${path}`).json();
   },
 
-  update(payload, id) {
-    return ky.put(`${baseUrl}/${id}`, { json: payload });
+  update(payload, id, path = "shoes") {
+    return ky.put(`${baseUrl}/${path}/${id}`, { json: payload });
   },
 
-  create(payload) {
-    return ky.post(baseUrl, { json: payload }).json();
+  create(payload, path = "shoes") {
+    return ky.post(`${baseUrl}/${path}`, { json: payload }).json();
   },
 
-  delete(id) {
-    return ky.delete(`${baseUrl}/${id}`);
+  delete(id ,path = "shoes") {
+    return ky.delete(`${baseUrl}/${path}/${id}`);
   },
+
+  newCustomer(payload, path = "customers") {
+    return ky.post(`${baseUrl}/${path}`, { json: payload }).json();
+  },
+
+  payment(payload, path = "payment"){
+    return ky.post(`${baseUrl}/${path}`, { json: payload }).json();
+
+  }
 };
 
 export default api;
