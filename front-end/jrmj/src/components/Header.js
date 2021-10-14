@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Cart from "../images/Cart.jpg";
-
+import CartIcon from './CartIcon';
 
 function Header() {
   return (
@@ -29,7 +28,7 @@ function Header() {
             SIGN UP
           </Link></li>
           <li><Link to="/Cart">
-            <img className="cart-logo" src={ Cart } alt="shopping cart" ></img>
+            <CartIcon/>
           </Link></li>
         </ul>
         
