@@ -1,7 +1,14 @@
-import React from 'react'
-import Testshoe from '../images/Testshoe.jpg'
+import React, {useContext} from 'react';
+import Testshoe from '../images/Testshoe.jpg';
+import { isInCart } from '../helpers.js';
+import { CartContext } from '../context/cart-context';
 
 function ShoeCard(data) {
+  const { title, imageUrl, price, history, id } = data;
+  const { addProduct, cartItems, increase } = useContext(CartContext);
+  const product = { title, imageUrl, price, id};
+  const itemInCart = isInCart(product, cartItems);
+
   return (
     <>
 
@@ -22,7 +29,18 @@ function ShoeCard(data) {
       <p className="shoe-card-price shoe-price-font">
       ${data.data.price}
       </p>
-      <button class="add-to-cart">Add to cart</button>
+      {
+        !itemInCart &&
+        <button className="add-to-cart" onClick={() => addProduct(product)}>
+        Add to cart</button>
+      }
+      {
+        itemInCart &&
+        <button className="add-to-cart" onClick={() => increase(product)}>
+        Add more</button>
+  
+      }
+      
     </div>
     </div>  
 </div>
