@@ -24,10 +24,14 @@ const api = {
     return ky.post(`${baseUrl}/${path}`, { json: payload }).json();
   },
 
-  payment(payload, path = "payment"){
-    return ky.post(`${baseUrl}/${path}`, { json: payload }).json();
+  // WHAT IF NO .json() here???
+  customerByEmail(email, path = "customers/email") {
+    return ky.get(`${baseUrl}/${path}/${email}`).json();
+  },
 
-  }
+  payment(payload, path = "charge"){
+    return ky.post(`${baseUrl}/${path}`, { json: payload }).json();
+  },
 };
 
 export default api;

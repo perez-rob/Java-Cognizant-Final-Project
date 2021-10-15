@@ -1,6 +1,7 @@
-package com.jrmj.ProductService.controller;
+package com.jrmj.StripeService.controller;
 
-import com.jrmj.ProductService.client.StripeClient;
+
+import com.jrmj.StripeService.client.StripeClient;
 import com.stripe.model.Charge;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

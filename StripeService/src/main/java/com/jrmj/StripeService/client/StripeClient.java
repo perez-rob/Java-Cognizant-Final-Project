@@ -1,4 +1,4 @@
-package com.jrmj.ProductService.client;
+package com.jrmj.StripeService.client;
 
 import com.stripe.Stripe;
 import com.stripe.model.Charge;

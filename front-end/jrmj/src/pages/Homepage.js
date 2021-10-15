@@ -2,6 +2,7 @@ import api from "../api";
 import { Header, Footer, ShoeCard } from "../components";
 import Shoebanner from "../images/Shoebanner.jpg";
 import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { useConsumer } from "../utils/ConsumerContext";
 import Filters from "../components/Filters";
 
 
@@ -9,6 +10,8 @@ const fetchShoes = async () => await api.index();
 
 function Homepage() {
 
+    const {currentUser, setCurrentUser} = useConsumer();
+    console.log("CURRENT USER: ", currentUser)
     // shoes is the key
     const {status, data, error } = useQuery('shoes', fetchShoes)
   

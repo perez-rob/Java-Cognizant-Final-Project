@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Explore from './pages/Explore';
 import Cart from './pages/Cart';
+import ConsumerProvider from './utils/ConsumerContext';
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 
@@ -12,28 +13,29 @@ const stripePromise = loadStripe('pk_test_51JjhRnLiea7p0n0HUnks0w0ZwHFJC3jHH6wKq
 
 function App() {
   return (
-   
-    <Router>
-    <Switch>
-          <Route exact path="/">
-            <Homepage />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/signup">
-            <Signup />
-          </Route>
-          <Route path="/explore">
-            <Explore />
-          </Route>
-          <Elements stripe={stripePromise}>
-          <Route path="/cart">
-            <Cart />
-          </Route>
-          </Elements>
-    </Switch>
-    </Router>
+    <ConsumerProvider>
+      <Router>
+      <Switch>
+            <Route exact path="/">
+              <Homepage />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/signup">
+              <Signup />
+            </Route>
+            <Route path="/explore">
+              <Explore />
+            </Route>
+            <Elements stripe={stripePromise}>
+            <Route path="/cart">
+              <Cart />
+            </Route>
+            </Elements>
+      </Switch>
+      </Router>
+    </ConsumerProvider>
  
   );
 }

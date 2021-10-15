@@ -22,6 +22,9 @@ public interface CustomerServiceClient {
     @PutMapping("/customers/{id}")
     public Object updateCustomer(@PathVariable Integer id, Object customer);
 
+    @GetMapping("/customers/email/{email}")
+    public List getCustomerByEmail(@PathVariable String email);
+
     @DeleteMapping("/customers/{id}")
     public HashMap<String, String> deleteCustomer(@PathVariable Integer id);
 
