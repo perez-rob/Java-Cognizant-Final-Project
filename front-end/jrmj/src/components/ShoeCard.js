@@ -2,11 +2,12 @@ import React, {useContext} from 'react';
 import Testshoe from '../images/Testshoe.jpg';
 import { isInCart } from '../helpers.js';
 import { CartContext } from '../context/cart-context';
+import cartReducer from '../context/cart-reducer';
 
 function ShoeCard(data) {
-  const { title, imageUrl, price, history, id } = data;
+  const { shoeName, imageUrl, price, history, shoeId } = data.data;
   const { addProduct, cartItems, increase } = useContext(CartContext);
-  const product = { title, imageUrl, price, id};
+  const product = { shoeName, imageUrl, price, shoeId};
   const itemInCart = isInCart(product, cartItems);
 
   return (

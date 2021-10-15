@@ -9,7 +9,7 @@ const cartReducer = (state, action) => {
     switch(action.type) {
         case 'ADD_ITEM':
             // check if item is in cart
-            if (!state.cartItems.find(item => item.id === action.payload.id)) {
+            if (!state.cartItems.find(item => item.shoeId === action.payload.shoeId)) {
                 state.cartItems.push({
                     ...action.payload,
                     quantity: 1,
@@ -24,7 +24,7 @@ const cartReducer = (state, action) => {
             }
 
         case 'INCREASE':
-         const increaseIndex = state.cartItems.findIndex(item => item.id === action.payload.id);
+         const increaseIndex = state.cartItems.findIndex(item => item.shoeId === action.payload.shoeId);
          state.cartItems[increaseIndex].quantity++;
 
             return {
