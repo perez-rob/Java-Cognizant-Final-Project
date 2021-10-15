@@ -19,7 +19,6 @@ h1, h2, h3, h4, h5, h6, p {
   margin-bottom: 0;
 }
 
-/* ------------------------------------------------------------Truncating */
 
 
 /* -----------------------------------------------------------NAVBAR */
@@ -267,6 +266,7 @@ flex-basis: 1 1 100%;
 }
  input {
    border: 2px solid var(--main-bg-color);
+   padding-left: .3rem;
  }
 
 .img-wrapper {
@@ -274,13 +274,29 @@ flex-basis: 1 1 100%;
   display: none;
 }
 
+.explore-image-wrapper {
+  width:50%;
+}
+
 .form-img {
   width: 85%;
   display: none;
- 
+ }
+
+ .explore-img {
+  width: 100%;
+  align-self: center;
+ }
+
+ .explore-wrapper p {
+  text-align: center;
+  padding: 1rem;
 }
 
-
+.shop-phrase {
+  text-align: center;
+  margin-top: 2rem;
+}
 .testWrapper {
   display: flex;
   justify-content: center;
@@ -426,8 +442,19 @@ flex-basis: 1 1 100%;
   .logo {
     width: 10vw;
     padding-left: 4rem;
-    padding-right: .5rem;
+    padding-right: .5rem;   
+    display: -block;
   }
+
+  
+  .backwards {
+    -webkit-transform:rotateY(180deg);
+    -moz-transform:rotateY(180deg);
+    -o-transform:rotateY(180deg);
+    -ms-transform:rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+
   .message {
     padding: .5rem;
     display: block;
@@ -447,10 +474,7 @@ flex-basis: 1 1 100%;
       
   }
 
-  /* .hack-component {
-    min-height: 25vh;
-  }
-   */
+  
   .content {
     float: none;
     width: 100%;
@@ -483,6 +507,7 @@ flex-basis: 1 1 100%;
     width: 35vw;
     padding-right: 4rem;
     padding-left: 3rem;
+    margin-left: 2rem;
   }
 
   .nav-links-start li {
@@ -493,8 +518,9 @@ flex-basis: 1 1 100%;
     display: flex;
     justify-content: flex-end;
     width: 55vw;
-    padding-right: 5rem;
+    padding-right: 8rem;
     padding-left: .5rem;
+    
   }
 
   .nav-links-end li {
@@ -530,8 +556,28 @@ flex-basis: 1 1 100%;
   .explore-wrapper {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    
+    flex-wrap: no-wrap;
+    flex-direction: row;
+  }
+
+  .explore-image-wrapper {
+    display: block;
+  }
+
+  
+  .explore-wrapper p {
+    width:65%;
+    text-align: center;
+    padding-left: 5rem;
+  }
+
+  .explore-top-text {
+    margin-left: 5rem;
+
+  }
+
+  .explore-top-img {
+    padding-left: 3rem;
   }
 
   .shop-phrase {
@@ -554,11 +600,6 @@ flex-basis: 1 1 100%;
   .footer {
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 2rem;
-  }
-
-  .hz-wrapper {
-    margin-top: 10rem;
   }
 
   

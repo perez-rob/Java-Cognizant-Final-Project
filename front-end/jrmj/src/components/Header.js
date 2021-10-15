@@ -9,7 +9,7 @@ function Header() {
     <h5 className="message scroll-text">To help support Breast Cancer Awareness, 10% of all sales will go towards Breast Cancer Research Foundation </h5>
     <div className="nav-wrapper">
       <div className="sidebar">
-        <h3 className="logo"><Link to="/">JRMJ</Link></h3>
+        <h3 className="logo"><Link to="/"><div className="jrm">JRM<a className="backwards">J</a></div></Link></h3>
 
         <ul className="nav-links-start">
           <li><Link to="/">
