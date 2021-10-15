@@ -1,12 +1,13 @@
 import React from 'react'
 
-function Filters(data) {
+function Filters() {
+    
     return (
         <>
             <button className="filter-button">Filter ↓</button>
             
-            {/* <p className="results"> ??? Results</p> - moved down to HP.js*/}
-            {/* cant pass props up */}
+            {/* <p className="results"> {data.length} Results</p> */}
+            {/* data is retrieved in homepage.js and can't be passed up */}
             
         </>
     )

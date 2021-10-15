@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.*;
 public class PaymentController {
 
     private StripeClient stripeClient;
+
     @Autowired
     PaymentController(StripeClient stripeClient) {
         this.stripeClient = stripeClient;
     }
+
     @PostMapping("/charge")
-    public Charge chargeCard(@RequestHeader(value="token") String token, @RequestHeader(value="amount") Double amount) throws Exception {
-        System.out.println("payment");
-        return this.stripeClient.chargeNewCard(token, amount);
+    public Charge chargeCard(@RequestHeader(value = "token") String token, @RequestHeader(value = "amount") Double amount) throws Exception {
+        return stripeClient.chargeNewCard(token, amount);
     }
 }

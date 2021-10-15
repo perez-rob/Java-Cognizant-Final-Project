@@ -2,8 +2,17 @@ import ky from 'ky';
 
 const baseUrl = 'http://localhost:7979';
 
+// await axios.post("http://localhost:7979/charge", "", {
+//     headers: {
+//       token: token.id,
+//       amount: 500,
+//     },
+
 
 const api = {
+
+  
+
   index(path = "shoes") {
     return ky.get(`${baseUrl}/${path}`).json();
   },

@@ -29,7 +29,8 @@ function Homepage() {
 
                     <h1 className="text-center">Shop Our Collection!</h1>
                     <div className="results-wrapper"><Filters data={data} />
-                    <p className="results"> {data.length} Results</p></div>
+                    <p className="results"> {data.length} Results</p>
+                    </div>
                 </div>
                 <div className="multi-card-wrapper">
                     {/* These will be mapped in eventually and the wrapper div will get moved to shoecard component*/}
