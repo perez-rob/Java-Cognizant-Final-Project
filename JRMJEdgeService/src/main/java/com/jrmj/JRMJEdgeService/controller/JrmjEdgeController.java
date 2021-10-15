@@ -2,6 +2,7 @@ package com.jrmj.JRMJEdgeService.controller;
 
 import com.jrmj.JRMJEdgeService.util.feign.CustomerServiceClient;
 import com.jrmj.JRMJEdgeService.util.feign.ProductServiceClient;
+import com.jrmj.JRMJEdgeService.util.feign.StripeServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
@@ -21,9 +22,13 @@ public class JrmjEdgeController {
     @Autowired
     private final ProductServiceClient productClient;
 
-    JrmjEdgeController(CustomerServiceClient customerClient, ProductServiceClient productClient) {
+    @Autowired
+    private final StripeServiceClient stripeClient;
+
+    JrmjEdgeController(CustomerServiceClient customerClient, ProductServiceClient productClient, StripeServiceClient stripeClient) {
         this.customerClient = customerClient;
         this.productClient = productClient;
+        this.stripeClient = stripeClient;
     }
 
     // ------ CUSTOMERS ------
@@ -81,8 +86,10 @@ public class JrmjEdgeController {
         return productClient.getShoesByBrand(brand);
     }
 
+    // ------ STRIPE ------
+
     @PostMapping("/charge")
     public Object chargeCard(@RequestHeader(value="token") String token, @RequestHeader(value="amount") Double amount) {
-        return productClient.chargeCard(token, amount);
+        return stripeClient.chargeCard(token, amount);
     }
 }

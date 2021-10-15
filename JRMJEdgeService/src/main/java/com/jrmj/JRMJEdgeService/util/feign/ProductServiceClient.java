@@ -21,7 +21,4 @@ public interface ProductServiceClient {
     @GetMapping("/shoes/brand/{brand}")
     public List getShoesByBrand(@PathVariable String brand);
 
-    @PostMapping("/charge")
-    public Object chargeCard(@RequestHeader(value="token") String token, @RequestHeader(value="amount") Double amount);
-
 }
