@@ -8,6 +8,8 @@
 
 body {
   text-align: unset;
+  width:100%;
+  overflow-x: hidden;
 }
 
 :root{
@@ -33,10 +35,11 @@ h1, h2, h3, h4, h5, h6, p {
   text-align: center;
   border-bottom-style: none;
   display: none;
+  width:100%;
+  overflow:hidden;
   }
 
  
-  
 .scroll-text {
   text-align: right;
 

@@ -32,12 +32,14 @@ function ShoeCard(data) {
       </p>
       {
         !itemInCart &&
-        <button className="add-to-cart" onClick={() => addProduct(product)}>
+        <button className="add-to-cart" onClick={() => {addProduct(product);
+        console.log(cartItems)}}>
         Add to cart</button>
       }
       {
         itemInCart &&
-        <button className="add-to-cart" onClick={() => increase(product)}>
+        <button className="add-to-cart" onClick={() => {increase(product);
+        console.log(cartItems)}}>
         Add more</button>
   
       }
