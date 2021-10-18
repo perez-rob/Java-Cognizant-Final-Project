@@ -2,6 +2,7 @@ package com.jrmj.ProductService.controller;
 
 import com.jrmj.ProductService.model.Shoe;
 import com.jrmj.ProductService.repository.ShoeRepository;
+import org.hibernate.annotations.Proxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
