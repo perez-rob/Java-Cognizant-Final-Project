@@ -235,6 +235,44 @@ flex-basis: 1 1 100%;
 
 }
 
+.login-to-shop {
+  padding-left:.3rem;
+  padding-right: .3rem;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  font-size: 0.85rem;
+}
+
+.login-to-shop span {
+    /* animation for text fade out */
+    transition: all 0.6s;
+    opacity: 0;
+    -moz-animation: animate-fade-out 5s ease-out;
+    -webkit-animation: animate-fade-out 5s ease-out;
+    animation: animate-fade-out 5s ease-out;
+}
+
+/* for Firefox */
+@-moz-keyframes animate-fade-out {
+  from { opacity: 1;}
+  to { opacity: 0; }
+}
+
+/* for Chrome */
+@-webkit-keyframes animate-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes animate-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.login-to-shop span:hover {
+  opacity: 1;
+}
+
 /* --------------------------------------------------------------Cart */
 
 .checkout-button {
@@ -324,6 +362,14 @@ flex-basis: 1 1 100%;
   text-align: center;
   padding-top: 2rem;
   font-size: 1rem;
+}
+/* -----------------------------------------------------------UserProfilePage */
+
+.logoutBtn {
+  background-color: white;
+  color: rgb(226, 0, 0);
+  border-radius: 0.3rem;
+  padding: 0.1rem 0.5rem;
 }
 /* -----------------------------------------------------------Footer */
 

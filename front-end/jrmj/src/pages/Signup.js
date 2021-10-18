@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import Lady2 from "../images/Lady2.jpg";
 import api from "../api";
 import { useMutation } from 'react-query';
+import { useConsumer } from "../utils/ConsumerContext";
 
 
 const emailRegEx =
@@ -58,7 +59,7 @@ const FORM_DATA_REGISTER = {
 
 function Signup() {
 
-
+  const {currentUser, setCurrentUser} = useConsumer();
 
   const history = useHistory();
 
@@ -87,7 +88,7 @@ function Signup() {
   }
 
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     let data = { ...stateFormData };
 
@@ -102,12 +103,12 @@ function Signup() {
       const isValid = validationHandler(stateFormData);
 
       if (isValid) {
-        addCustomer.mutate(data);
-        history.push("/")
-        
-        // ADD CONSUMER CONTEXT STUFF HERE
-        //
-       
+        // addCustomer.mutate(data)
+
+        let returnData = await api.newCustomer(data);
+
+        setCurrentUser(returnData)
+        history.push("/");
       }
   }
 }
