@@ -482,7 +482,6 @@ export default function UserProfile() {
     e.preventDefault();
     let data = { ...stateFormData };
     let reqBody = {};
-    console.log("SUB START")
     const isValid = validationHandler(stateFormData);
 
     if (isValid) {
@@ -509,7 +508,6 @@ export default function UserProfile() {
       reqBody.addressShipping = addressShippingData;
       reqBody.addressBilling = addressBillingData;
 
-      console.log("sub", reqBody)
 
       const isValid = validationHandler(stateFormData);
 
@@ -517,7 +515,6 @@ export default function UserProfile() {
         // addCustomer.mutate(data)
 
         let returnData = await api.updateCustomer(reqBody, currentUser.id);
-        console.log("SUB END", returnData)
 
         setCurrentUser(returnData);
         setCanEdit(false);
@@ -630,8 +627,6 @@ export default function UserProfile() {
     console.log("MEOW", stateFormError)
     return isValid;
   };
-
-  console.log("TEST", currentUser) ///////////////////////////////////////////////////////////////////////////
 
   const handleLogout = () => {
     setCurrentUser(null);
