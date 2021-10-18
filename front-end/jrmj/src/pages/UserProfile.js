@@ -375,6 +375,26 @@ export default function UserProfile() {
   const [stateFormMessage, setStateFormMessage] = useState({});
 
   useEffect(() => {
+    if (currentUser.addressShipping == null) {
+      currentUser.addressShipping = {
+        "street1":  "",
+        "street2": "",
+        "city":  "",
+        "stateAbv":  "",
+        "zipCode":  "",
+      };
+    }
+
+    if (currentUser.addressBilling == null) {
+      currentUser.addressBilling = {
+        "street1":  "",
+        "street2": "",
+        "city":  "",
+        "stateAbv":  "",
+        "zipCode":  "",
+      };
+    }
+
     setStateFormData({
       ...stateFormData,
       "firstName": {

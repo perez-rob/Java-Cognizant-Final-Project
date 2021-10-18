@@ -13,15 +13,13 @@ const stripePromise = loadStripe(process.env.REACT_APP_PUBLISHABLE_KEY);
 
 
 ReactDOM.render(
-  <React.StrictMode>
     <QueryClientProvider client={qc}>
     <CartContextProvider>
       <Elements stripe={stripePromise}>
         <App />
       </Elements>
     </CartContextProvider>
-    </QueryClientProvider>
-  </React.StrictMode>,
+    </QueryClientProvider>,
   document.getElementById('root')
 );
 
