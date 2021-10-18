@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CartIcon from './CartIcon';
+import userProfileIcon from '../images/UserProfile.png';
+import { useConsumer } from "../utils/ConsumerContext";
 
 function Header() {
+  const {currentUser, setCurrentUser} = useConsumer();
+  
   return (
     <>
     <div className="super-header" style={{backgroundColor:'black'}}>
@@ -23,15 +27,28 @@ function Header() {
         </ul>
        
         <ul className="nav-links-end">
-          <li><Link to="/Login">
+          {currentUser ? 
+          (<><li>
+            <Link to="/Cart">
+          <CartIcon/>
+        </Link>
+        </li>
+        <li>
+          <Link to="/profile">
+          <img className="cart-logo" src={ userProfileIcon } alt="shopping cart" ></img>
+          </Link>
+          </li></>) :
+          (<><li>
+            <Link to="/Login">
             LOGIN
-          </Link></li>
-          <li><Link to="/Signup">
+          </Link>
+          </li>
+          <li>
+            <Link to="/Signup">
             SIGN UP
-          </Link></li>
-          <li><Link to="/Cart">
-            <CartIcon/>
-          </Link></li>
+          </Link>
+          </li></>
+          )}
         </ul>
         
       </div>

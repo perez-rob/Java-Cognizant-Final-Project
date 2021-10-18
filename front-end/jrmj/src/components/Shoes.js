@@ -1,21 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import api from "../api";
 import { ShoeCard } from "../components";
 import { useQuery } from 'react-query';
 
 
 
-function Shoes({ currentFilter }) {
+function Shoes({ currentFilter, setResultsNum }) {
 
    
     
     
     const { status, data, error } = useQuery(
         ['shoes', currentFilter.value],
-        () => api.index(currentFilter)
-
+        async () => await api.index(currentFilter)
     );
-
+    
+    useEffect(() => {
+        if (data){
+        setResultsNum(data.length)
+        }
+    },[data])
+    
     return (
         <>
             <div className="multi-card-wrapper">
