@@ -70,7 +70,7 @@ public class ShoeControllerTest {
         given(shoeRepo.findAll()).willReturn(shoeList);
 
         mockMvc.perform(
-                        get("/shoes"))
+                        get("/shoes/category/all"))
                 .andExpect(status().isOk())
                 .andExpect(content().json(shoeListJson)
                 );
@@ -107,6 +107,7 @@ public class ShoeControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json(shoeListJson));
     }
+
 
 
 

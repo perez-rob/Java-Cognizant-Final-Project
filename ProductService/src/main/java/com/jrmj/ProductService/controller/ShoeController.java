@@ -24,12 +24,14 @@ public class ShoeController {
         this.shoeRepo = shoeRepo;
     }
 
-    @GetMapping("/shoes")
+
+    @GetMapping("/shoes/category/all")
     @ResponseStatus(HttpStatus.OK)
     public List<Shoe> getAllShoes() {
         List<Shoe> shoeList = shoeRepo.findAll();
         return shoeList;
     }
+
 
     @GetMapping("/shoes/{id}")
     @ResponseStatus(HttpStatus.OK)

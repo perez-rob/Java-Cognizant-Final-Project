@@ -2,6 +2,7 @@ import ky from 'ky';
 
 const baseUrl = 'http://localhost:7979';
 
+// translate to ky:
 // await axios.post("http://localhost:7979/charge", "", {
 //     headers: {
 //       token: token.id,
@@ -11,11 +12,13 @@ const baseUrl = 'http://localhost:7979';
 
 const api = {
 
-  
-
-  index(path = "shoes") {
-    return ky.get(`${baseUrl}/${path}`).json();
+  index({ type, value }, path = "shoes") {
+    return ky.get(`${baseUrl}/${path}/${type}/${value}`).json();
   },
+
+  // index(path = "shoes") {
+  //   return ky.get(`${baseUrl}/${path}`).json();
+  // },
 
   update(payload, id, path = "shoes") {
     return ky.put(`${baseUrl}/${path}/${id}`, { json: payload });
@@ -25,7 +28,7 @@ const api = {
     return ky.post(`${baseUrl}/${path}`, { json: payload }).json();
   },
 
-  delete(id ,path = "shoes") {
+  delete(id, path = "shoes") {
     return ky.delete(`${baseUrl}/${path}/${id}`);
   },
 
@@ -38,7 +41,7 @@ const api = {
     return ky.get(`${baseUrl}/${path}/${email}`).json();
   },
 
-  payment(payload, path = "charge"){
+  payment(payload, path = "charge") {
     return ky.post(`${baseUrl}/${path}`, { json: payload }).json();
   },
 };
