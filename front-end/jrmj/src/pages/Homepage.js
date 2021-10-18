@@ -12,6 +12,7 @@ function Homepage() {
 
     const { currentUser, setCurrentUser } = useConsumer();
 
+    const [ resultsNum, setResultsNum ] = useState(0);
 
     const [currentFilter, setCurrentFilter] = useState({ type: "category", value: "all" });
 
@@ -32,10 +33,10 @@ function Homepage() {
                 <div>
                     <h1 className="text-center">Shop Our Collection!</h1>
 
-                    <div className="results-wrapper"><Filters handler={handleChange} /></div>
+                    <div className="results-wrapper"><Filters handler={handleChange} /><p className="results"> {resultsNum} Results</p></div>
 
                     {currentFilter.type ? (
-                        <Shoes currentFilter={currentFilter} />
+                        <Shoes currentFilter={currentFilter} setResultsNum={setResultsNum}/>
                     ) : null}
 
 
