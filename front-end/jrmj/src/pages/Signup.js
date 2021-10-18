@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Header, Footer } from "../components";
 import { Link, useHistory } from 'react-router-dom';
-import Lady2 from "../images/Lady2.jpg";
+import Stil from "../images/stiletto.jpg";
 import api from "../api";
 import { useMutation } from 'react-query';
 import { useConsumer } from "../utils/ConsumerContext";
@@ -318,7 +318,7 @@ function Signup() {
             </div>
             
             <div className="img-wrapper">
-              <img className="form-img" src={ Lady2 }  alt="Man pondering with one arm crossed and fist under chin while looking slightly upwards." />
+              <img className="form-img" src={ Stil }  alt="women's stiletto shoe" />
 
             </div>
 
