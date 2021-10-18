@@ -4,7 +4,6 @@ import { CartContext } from '../context/cart-context';
 
 const CartIcon = () => {
     const { itemCount, cartItems } = useContext(CartContext);
-    console.log('CartItems:', cartItems)
     return (
         <div>
             <img className="cart-logo" src={ Cart } alt="shopping cart" ></img>
