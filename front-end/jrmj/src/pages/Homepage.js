@@ -1,46 +1,52 @@
 import api from "../api";
 import { Header, Footer, ShoeCard } from "../components";
 import Shoebanner from "../images/Shoebanner.jpg";
-import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { useQuery } from 'react-query';
 import { useConsumer } from "../utils/ConsumerContext";
 import Filters from "../components/Filters";
+import Shoes from "../components/Shoes";
+import { useState } from 'react';
 
-
-const fetchShoes = async () => await api.index();
 
 function Homepage() {
 
-    const {currentUser, setCurrentUser} = useConsumer();
-    console.log("CURRENT USER: ", currentUser)
-    // shoes is the key
-    const {status, data, error } = useQuery('shoes', fetchShoes)
-  
-    console.log(data, "homepage");
-    
+    const { currentUser, setCurrentUser } = useConsumer();
+
+
+    const [currentFilter, setCurrentFilter] = useState({ type: "category", value: "all" });
+
+    function handleChange(e) {
+        setCurrentFilter(() => ({
+            type: e.target.name,
+            value: e.target.value.toLowerCase(),
+        }));
+    }
 
     return (
         <>
-     <Header />
-     
-     <div className="content">
-         <div className="hero"><img className="banner" src={ Shoebanner} alt="Banner with 2 shoes" /><img className="banner-others" src={ Shoebanner} alt="Banner with 2 shoes" /><img className="banner-others" src={ Shoebanner} alt="Banner with 2 shoes" /></div>
-         <div>
-         <h1 className="text-center">Shop Our Collection!</h1>
-         <div className="results-wrapper"><Filters  data={data} /></div>
-         </div>
-         <div className="multi-card-wrapper">
-             {/* These will be mapped in eventually and the wrapper div will get moved to shoecard component*/}
-     {status=="success"?
-     data.map(shoe => <ShoeCard data={shoe} key={data.shoeID} />) 
-     :null}
-          
-        </div>
-    
+            <Header />
 
-     <Footer />
-     </div>
+
+            <div className="content">
+                <div className="hero"><img className="banner" src={Shoebanner} alt="Banner with 2 shoes" /><img className="banner-others" src={Shoebanner} alt="Banner with 2 shoes" /><img className="banner-others" src={Shoebanner} alt="Banner with 2 shoes" /></div>
+                <div>
+                    <h1 className="text-center">Shop Our Collection!</h1>
+
+                    <div className="results-wrapper"><Filters handler={handleChange} /></div>
+
+                    {currentFilter.type ? (
+                        <Shoes currentFilter={currentFilter} />
+                    ) : null}
+
+
+                </div>
+
+
+                <Footer />
+            </div>
+
         </>
     );
-  }
-  
-  export default Homepage;
+}
+
+export default Homepage;

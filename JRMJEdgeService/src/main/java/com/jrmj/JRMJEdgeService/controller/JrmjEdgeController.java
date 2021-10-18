@@ -66,7 +66,7 @@ public class JrmjEdgeController {
 
     // ------ PRODUCTS ------
 
-    @GetMapping("/shoes")
+    @GetMapping("/shoes/category/all")
     public List getAllShoes() {
         return productClient.getAllShoes();
     }

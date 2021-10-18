@@ -9,7 +9,7 @@ import java.util.List;
 public interface ProductServiceClient {
 
 
-    @GetMapping("/shoes")
+    @GetMapping("/shoes/category/all")
     public List getAllShoes();
 
     @GetMapping("/shoes/{id}")

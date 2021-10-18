@@ -2,6 +2,7 @@ package com.jrmj.ProductService.controller;
 
 import com.jrmj.ProductService.model.Shoe;
 import com.jrmj.ProductService.repository.ShoeRepository;
+import org.hibernate.annotations.Proxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
@@ -23,12 +24,14 @@ public class ShoeController {
         this.shoeRepo = shoeRepo;
     }
 
-    @GetMapping("/shoes")
+
+    @GetMapping("/shoes/category/all")
     @ResponseStatus(HttpStatus.OK)
     public List<Shoe> getAllShoes() {
         List<Shoe> shoeList = shoeRepo.findAll();
         return shoeList;
     }
+
 
     @GetMapping("/shoes/{id}")
     @ResponseStatus(HttpStatus.OK)

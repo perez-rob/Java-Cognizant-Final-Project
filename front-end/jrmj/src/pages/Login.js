@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Header, Footer } from "../components";
 import { Link, useHistory } from 'react-router-dom';
-import Manthinking from "../images/Manthinking.jpg";
+import brownshoes from "../images/brownshoe.jpg";
 import { useConsumer } from "../utils/ConsumerContext";
 import api from "../api";
 import { useQuery } from 'react-query';
@@ -272,7 +272,7 @@ function validationHandler(states, e) {
             </div>
             
             <div className="img-wrapper">
-              <img className="form-img" src={ Manthinking }  alt="Man pondering with one arm crossed and fist under chin while looking slightly upwards." />
+              <img className="form-img" src={brownshoes }  alt="brown leather shoes for men." />
 
             </div>
 
