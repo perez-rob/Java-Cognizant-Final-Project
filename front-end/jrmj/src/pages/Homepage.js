@@ -14,7 +14,6 @@ function Homepage() {
     console.log("CURRENT USER: ", currentUser)
     // shoes is the key
     const { status, data, error } = useQuery('shoes', fetchShoes)
-    var count = 0;
 
     console.log(data, "homepage");
 
@@ -29,7 +28,7 @@ function Homepage() {
 
                     <h1 className="text-center">Shop Our Collection!</h1>
                     <div className="results-wrapper"><Filters data={data} />
-                    <p className="results"> {data.length} Results</p>
+
                     </div>
                 </div>
                 <div className="multi-card-wrapper">
@@ -39,7 +38,7 @@ function Homepage() {
                         : null}
 
                 </div>
-                
+
 
                 <Footer />
             </div>

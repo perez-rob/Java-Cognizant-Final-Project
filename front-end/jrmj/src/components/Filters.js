@@ -1,16 +1,26 @@
 import React from 'react'
+import { Select } from '@chakra-ui/react';
 
-function Filters() {
-    
+
+function Filters({ handler }) {
     return (
         <>
-            <button className="filter-button">Filter ↓</button>
-            
-            {/* <p className="results"> {data.length} Results</p> */}
-            {/* data is retrieved in homepage.js and can't be passed up */}
-            
+            {/* <Select
+                placeholder="Filter Results"
+                name="filter"
+                onChange={handler}
+            >
+                <option value="Men">Men's</option>
+                <option value="Women">Women's</option>
+
+            </Select> */}
+
+
+
         </>
     )
 }
 
-export default Filters
+
+
+export default Filters;
