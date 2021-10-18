@@ -8,15 +8,12 @@ import Shoes from "../components/Shoes";
 import { useState } from 'react';
 
 
-
-
 function Homepage() {
 
     const { currentUser, setCurrentUser } = useConsumer();
 
 
-    const [currentFilter, setCurrentFilter] = useState({type: "category", value: "all"});
-
+    const [currentFilter, setCurrentFilter] = useState({ type: "category", value: "all" });
 
     function handleChange(e) {
         setCurrentFilter(() => ({
@@ -34,15 +31,14 @@ function Homepage() {
                 <div className="hero"><img className="banner" src={Shoebanner} alt="Banner with 2 shoes" /><img className="banner-others" src={Shoebanner} alt="Banner with 2 shoes" /><img className="banner-others" src={Shoebanner} alt="Banner with 2 shoes" /></div>
                 <div>
                     <h1 className="text-center">Shop Our Collection!</h1>
-                    <div className="results-wrapper">
-                 
 
-                        <Filters handler={handleChange} />
-                        {currentFilter.type ? (
-                            <Shoes currentFilter={currentFilter} />
-                        ) : null}
+                    <div className="results-wrapper"><Filters handler={handleChange} /></div>
 
-                    </div>
+                    {currentFilter.type ? (
+                        <Shoes currentFilter={currentFilter} />
+                    ) : null}
+
+
                 </div>
 
 

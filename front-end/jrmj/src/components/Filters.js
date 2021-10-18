@@ -16,7 +16,6 @@ function Filters({ handler }) {
                     <option value="all">All Shoes</option>
 
                 </Select>
-                <div> </div>
 
             </div>
 
