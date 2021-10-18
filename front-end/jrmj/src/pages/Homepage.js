@@ -1,7 +1,7 @@
 import api from "../api";
 import { Header, Footer, ShoeCard } from "../components";
 import Shoebanner from "../images/Shoebanner.jpg";
-import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { useQuery } from 'react-query';
 import { useConsumer } from "../utils/ConsumerContext";
 import Filters from "../components/Filters";
 
@@ -12,6 +12,7 @@ function Homepage() {
 
     const { currentUser, setCurrentUser } = useConsumer();
     console.log("CURRENT USER: ", currentUser)
+
     // shoes is the key
     const { status, data, error } = useQuery('shoes', fetchShoes)
 
@@ -21,14 +22,14 @@ function Homepage() {
     return (
         <>
             <Header />
-
+           
             <div className="content">
                 <div className="hero"><img className="banner" src={Shoebanner} alt="Banner with 2 shoes" /><img className="banner-others" src={Shoebanner} alt="Banner with 2 shoes" /><img className="banner-others" src={Shoebanner} alt="Banner with 2 shoes" /></div>
                 <div>
 
                     <h1 className="text-center">Shop Our Collection!</h1>
                     <div className="results-wrapper"><Filters data={data} />
-
+                    {/* <div><p className="results"> {data.length} Results</p></div> */}
                     </div>
                 </div>
                 <div className="multi-card-wrapper">
