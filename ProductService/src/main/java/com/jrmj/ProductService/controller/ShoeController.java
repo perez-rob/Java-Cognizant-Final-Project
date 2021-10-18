@@ -24,7 +24,6 @@ public class ShoeController {
         this.shoeRepo = shoeRepo;
     }
 
-
     @GetMapping("/shoes/category/all")
     @ResponseStatus(HttpStatus.OK)
     public List<Shoe> getAllShoes() {
