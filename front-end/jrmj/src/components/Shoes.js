@@ -19,7 +19,7 @@ function Shoes({ currentFilter, setResultsNum }) {
         }
     },[data])
 
-    console.log(data)
+    
     
     return (
         <>
