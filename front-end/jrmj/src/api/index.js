@@ -36,7 +36,10 @@ const api = {
     return ky.post(`${baseUrl}/${path}`, { json: payload }).json();
   },
 
-  // WHAT IF NO .json() here???
+  updateCustomer(payload, id, path = "customers") {
+    return ky.put(`${baseUrl}/${path}/${id}`, { json: payload }).json();
+  },
+
   customerByEmail(email, path = "customers/email") {
     return ky.get(`${baseUrl}/${path}/${email}`).json();
   },

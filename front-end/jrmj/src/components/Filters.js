@@ -7,13 +7,15 @@ function Filters({ handler }) {
         <>
             <div>
                 <Select
-                    placeholder="Filter Results"
+                    
+                    icon={<></>}
                     name="category"
                     onChange={handler}
-                >
+                    
+                >   <option selected value="all">All Shoes</option>
                     <option value="Men">Men's</option>
                     <option value="Women">Women's</option>
-                    <option value="all">All Shoes</option>
+                    
 
                 </Select>
 

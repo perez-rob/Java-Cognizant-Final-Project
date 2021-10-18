@@ -1,5 +1,6 @@
 package com.jrmj.JRMJEdgeService.controller;
 
+import com.jrmj.JRMJEdgeService.util.feign.CartServiceClient;
 import com.jrmj.JRMJEdgeService.util.feign.CustomerServiceClient;
 import com.jrmj.JRMJEdgeService.util.feign.ProductServiceClient;
 import com.jrmj.JRMJEdgeService.util.feign.StripeServiceClient;
@@ -25,10 +26,14 @@ public class JrmjEdgeController {
     @Autowired
     private final StripeServiceClient stripeClient;
 
-    JrmjEdgeController(CustomerServiceClient customerClient, ProductServiceClient productClient, StripeServiceClient stripeClient) {
+    @Autowired
+    private final CartServiceClient cartClient;
+
+    JrmjEdgeController(CustomerServiceClient customerClient, ProductServiceClient productClient, StripeServiceClient stripeClient, CartServiceClient cartClient) {
         this.customerClient = customerClient;
         this.productClient = productClient;
         this.stripeClient = stripeClient;
+        this.cartClient = cartClient;
     }
 
     // ------ CUSTOMERS ------
@@ -92,4 +97,32 @@ public class JrmjEdgeController {
     public Object chargeCard(@RequestHeader(value="token") String token, @RequestHeader(value="amount") Double amount) {
         return stripeClient.chargeCard(token, amount);
     }
+
+    // ------ CART ------
+
+    @PostMapping("/cartdb")
+    public Object addCart(@RequestBody Object cart) {
+        return cartClient.addCart(cart);
+    }
+
+    @GetMapping("/cartdb")
+    public List getAllCarts() {
+        return cartClient.getAllCarts();
+    }
+
+    @GetMapping("/cartdb/{id}")
+    public Object getCartById(@PathVariable Integer id) {
+        return cartClient.getCartById(id);
+    }
+
+    @PutMapping("/cartdb/{id}")
+    public Object updateCart(@PathVariable Integer id, @RequestBody Object cart) {
+        return cartClient.updateCart(id, cart);
+    }
+
+    @DeleteMapping("/cartdb/{id}")
+    public HashMap<String, String> deleteCart(@PathVariable Integer id) {
+        return cartClient.deleteCart(id);
+    }
+
 }
