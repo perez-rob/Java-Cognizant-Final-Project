@@ -45,7 +45,7 @@ function ShoeCard(data) {
       {
         itemInCart && currentUser &&
         <button className="add-to-cart" onClick={() => {increase(product);
-        console.log(cartItems)}}>
+        }}>
         Add more</button>
   
       }

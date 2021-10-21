@@ -247,9 +247,9 @@ flex-basis: 1 1 100%;
     /* animation for text fade out */
     transition: all 0.6s;
     opacity: 0;
-    -moz-animation: animate-fade-out 5s ease-out;
-    -webkit-animation: animate-fade-out 5s ease-out;
-    animation: animate-fade-out 5s ease-out;
+    -moz-animation: animate-fade-out 3s ease-out;
+    -webkit-animation: animate-fade-out 3s ease-out;
+    animation: animate-fade-out 3s ease-out;
 }
 
 /* for Firefox */

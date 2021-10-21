@@ -12,7 +12,7 @@ function Filters({ handler }) {
                     name="category"
                     onChange={handler}
                     
-                >   <option selected value="all">All Shoes</option>
+                >   <option defaultValue="all">All Shoes</option>
                     <option value="Men">Men's</option>
                     <option value="Women">Women's</option>
                     

@@ -6,8 +6,6 @@ import { useQuery } from 'react-query';
 
 
 function Shoes({ currentFilter, setResultsNum }) {
-
-   
     
     
     const { status, data, error } = useQuery(
@@ -20,13 +18,16 @@ function Shoes({ currentFilter, setResultsNum }) {
         setResultsNum(data.length)
         }
     },[data])
+
+    
     
     return (
         <>
             <div className="multi-card-wrapper">
+            
 
                 {status == "success" ?
-                    data.map(shoe => <ShoeCard data={shoe} key={data.shoeID} />)
+                    data.map(shoe => <ShoeCard data={shoe} key={shoe.shoeId} />)
                     : null}
 
             </div>
